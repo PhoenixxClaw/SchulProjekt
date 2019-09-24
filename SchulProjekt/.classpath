@@ -2,7 +2,21 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySGLConector"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate">
+		<attributes>
+			<attribute name="owner.project.facets" value="jpt.jpa;#system#"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySGLConector">
+		<attributes>
+			<attribute name="owner.project.facets" value="jpt.jpa;#system#"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/leon.limacardoso/Downloads/eclipselink/jlib/jpa/org.eclipse.persistence.jpa.modelgen.source_2.7.4.v20190115-ad5b7c6b2a.jar"/>
+	<classpathentry kind="lib" path="/Users/leon.limacardoso/Downloads/eclipselink/jlib/jpa/jakarta.persistence_2.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/leon.limacardoso/Downloads/eclipselink/jlib/jpa/jakarta.persistence.source_2.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/leon.limacardoso/Downloads/eclipselink/jlib/jpa/org.eclipse.persistence.jpa.modelgen_2.7.4.v20190115-ad5b7c6b2a.jar"/>
+	<classpathentry kind="lib" path="/Users/leon.limacardoso/Downloads/eclipselink/jlib/jpa/org.eclipse.persistence.jpars_2.7.4.v20190115-ad5b7c6b2a.jar"/>
+	<classpathentry kind="lib" path="/Users/leon.limacardoso/Downloads/eclipselink/jlib/jpa/org.eclipse.persistence.jpars.source_2.7.4.v20190115-ad5b7c6b2a.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
