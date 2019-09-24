@@ -1,0 +1,58 @@
+
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.login_background {
+	-fx-background-color: white ;
+}
+
+.login_textfield {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+    
+    }
+
+.login_textfield:focused {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.Loginbutton-login {
+	-fx-background-color: #50C45D;
+	-fx-scale-y: 1.1;
+}
+
+.Loginbutton-login:hover {
+	-fx-background-color: #3CDE4F;
+}
+.Loginbutton-login:pressed {
+	-fx-background-color: #3CDE4F;
+	-fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+.Loginbutton-cancel {
+	-fx-background-color: #50C45D;
+	-fx-scale-y: 1.1;
+}
+.Loginbutton-cancel:hover{
+	-fx-background-color: #fc3c3c;
+}
+.Loginbutton-cancel:pressed{
+	-fx-background-color: #fc3c3c;
+	-fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+
+
+
+	
+
+
+
+	
+	
+	
+	
+	
+	
+	
