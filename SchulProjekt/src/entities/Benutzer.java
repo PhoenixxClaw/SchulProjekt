@@ -34,6 +34,9 @@ public class Benutzer implements Serializable {
 	@Column(nullable = false, length = 60)
 	private String passwort;
 	
+	@Column(nullable = false, length = 60)
+	private String geburtsdatum;
+	
 	@Column (nullable = false, columnDefinition = "TINYINT(0)")
 	private Boolean isAdmin;
 	

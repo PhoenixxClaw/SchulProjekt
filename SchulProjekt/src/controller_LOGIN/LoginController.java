@@ -1,6 +1,6 @@
 package controller_LOGIN;
 
-import java.util.List;
+import java.io.IOException;
 
 import dao.BenutzerDAO;
 import entities.Benutzer;
@@ -41,23 +41,46 @@ public class LoginController {
 	void btn_login(ActionEvent event) {
 
 		BenutzerDAO benutzerDAO = new BenutzerDAO();
+		/*FXMLLoader fxmlLoader;
+
+		Stage stage = new Stage();
+		Parent artikel_anlegen;
+		fxmlLoader = new FXMLLoader(getClass().getResource("/gui/MAIN_gui.fxml"));
+		artikel_anlegen = (Parent) fxmlLoader.load();
+		stage.setScene(new Scene(artikel_anlegen));
+		stage.setTitle("Mister Spex VBM");
+		Stage stage2 = (Stage) btn_login.getScene().getWindow();
+		stage2.close();
+		stage.show();*/
+		
 		try {
 			Benutzer benutzer = benutzerDAO.findByBenutzerName(txt_username.getText());
-			if (benutzer.getPasswort().equals(txt_password.getText())) {
+			if (benutzer.getPasswort().equalsIgnoreCase(txt_password.getText())) {
 
 				/*FXMLLoader fxmlLoader;
 
 				Stage stage = new Stage();
+				Parent artikel_anlegen;
+				fxmlLoader = new FXMLLoader(getClass().getResource("/gui/MAIN_gui.fxml"));
+				artikel_anlegen = (Parent) fxmlLoader.load();
+				stage.setScene(new Scene(artikel_anlegen));
+				stage.setTitle("Mister Spex VBM");
+				Stage stage2 = (Stage) btn_login.getScene().getWindow();
+				stage2.close();
+				stage.show();*/
+				
+				
+				
+				
+				Stage stage = new Stage();
 				Parent MainNAV;
-				fxmlLoader = new FXMLLoader(
-						getClass().getResource("/gui/MainNav_gui.fxml"));
-
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/MAIN_gui.fxml"));
 				MainNAV = (Parent) fxmlLoader.load();
 				stage.setScene(new Scene(MainNAV));
 				stage.setTitle("New Generations GmbH");
 				Stage stage2 = (Stage) btn_login.getScene().getWindow();
 				stage2.close();
-				stage.show();*/
+				stage.show();
 				System.out.println("Login Successful");
 			} else {
 				System.out.println("Passwort Falsch");

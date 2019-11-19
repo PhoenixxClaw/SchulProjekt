@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="600.0" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="1050.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controller_MainNav.MainNAVController">
+   <children>
+      <AnchorPane layoutY="50.0" prefHeight="550.0" prefWidth="150.0">
+         <children>
+            <GridPane prefHeight="550.0" prefWidth="150.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox fx:id="hboxBuecher" alignment="CENTER" minWidth="150.0" onMouseClicked="#hboxBuecher" prefHeight="30.0" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <children>
+                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Bücher" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="168.13671875">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hboxRegalplatz" alignment="CENTER" minWidth="150.0" onMouseClicked="#hboxRegalplatz" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                     <children>
+                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Regalplatz" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="150.13671875">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hboxAusweis" alignment="CENTER" minWidth="150.0" onMouseClicked="#hboxAusweis" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                     <children>
+                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Ausweis" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="176.13671875">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hboxBenutzer" alignment="CENTER" minWidth="150.0" onMouseClicked="#hboxBenutzer" GridPane.rowIndex="7">
+                     <children>
+                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Benutzer" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="169.884765625">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="50.0" prefWidth="1050.0" />
+      <TabPane fx:id="tabPane" layoutX="150.0" layoutY="51.0" minHeight="550.0" minWidth="900.0" prefHeight="550.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE" />
+   </children>
+</AnchorPane>
