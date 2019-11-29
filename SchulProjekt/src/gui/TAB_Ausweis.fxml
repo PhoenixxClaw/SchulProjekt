@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controller_Ausweis.AusweisTabController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0">
+         <children>
+            <GridPane layoutX="486.0" layoutY="506.0" prefHeight="30.0" prefWidth="416.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="btnSuchen" mnemonicParsing="false" onMouseClicked="#btnSuchen" prefHeight="30.0" prefWidth="95.0" text="Suchen" />
+                  <Button fx:id="btnAnlegen" mnemonicParsing="false" onMouseClicked="#btnAnlegen" prefHeight="30.0" prefWidth="95.0" text="Anlegen" GridPane.columnIndex="1" />
+                  <Button fx:id="btnBearbeiten" mnemonicParsing="false" onMouseClicked="#btnBearbeiten" prefHeight="30.0" prefWidth="95.0" text="Bearbeiten" GridPane.columnIndex="2" />
+                  <Button fx:id="btnInformation" mnemonicParsing="false" onMouseClicked="#btnInformation" prefHeight="30.0" prefWidth="95.0" text="Information" GridPane.columnIndex="3" />
+               </children>
+            </GridPane>
+            <ComboBox fx:id="cbbSuche" layoutX="14.0" layoutY="506.0" prefWidth="150.0" />
+            <TextField fx:id="txSuche" layoutX="164.0" layoutY="506.0" prefHeight="31.0" prefWidth="324.0" />
+            <TableView layoutX="14.0" layoutY="14.0" prefHeight="485.0" prefWidth="880.0">
+              <columns>
+                <TableColumn fx:id="colAusweisNr" minWidth="150.0" prefWidth="75.0" text="Ausweis Nr." />
+                <TableColumn fx:id="colNachname" minWidth="150.0" prefWidth="75.0" text="Nachname" />
+                  <TableColumn fx:id="colBenutzerNr" minWidth="150.0" prefWidth="75.0" text="Benutzer Nr." />
+                  <TableColumn fx:id="colAblaufDatum" minWidth="150.0" prefWidth="75.0" text="Ablauf Datum" />
+                  <TableColumn fx:id="colStatus" minWidth="150.0" prefWidth="75.0" text="Status" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

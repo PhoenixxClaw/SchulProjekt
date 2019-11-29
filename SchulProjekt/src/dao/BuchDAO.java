@@ -29,22 +29,33 @@ public class BuchDAO {
 		return em.find(Buch.class, id);
 	}
 	
-	public List<Buch> findAllBuche() {
-		TypedQuery<Buch> query = em.createNamedQuery("findAllBuch", Buch.class);
+	public List<Buch> findAllBuecher() {
+		TypedQuery<Buch> query = em.createNamedQuery("findAllBuecher", Buch.class);
 		List<Buch> collection = query.getResultList();
 		return collection;
 	}
 	
-	public Buch findByBuchNummer(String BuchNummer) {
-		Buch p = (Buch) em.createQuery("select p from Buch p where p.BuchNummer = :vn")
-				.setParameter("vn", BuchNummer)
-				.getSingleResult();
-		return p;
+	public List<Buch> findByBuchTitel(String BuchTitel) {
+		List<Buch> b = em.createQuery("SELECT b FROM Buch b WHERE b.Titel Like :vn").setParameter("vn", "%"+BuchTitel+"%").getResultList();
+		//TypedQuery<Buch> p = (Buch) em.createQuery("select p from Buch p where p.BuchNummer like :vn").setParameter("vn", "%"+BuchTitel+"%");
+		return b;
 	}
 	
-	public void persist(Buch ausweis) {
+	public List<Buch> findByISDN(String ISDN) {
+		List<Buch> b = em.createQuery("SELECT b FROM Buch b WHERE b.ISDN Like :vn").setParameter("vn", "%"+ISDN+"%").getResultList();
+		//TypedQuery<Buch> p = (Buch) em.createQuery("select p from Buch p where p.BuchNummer like :vn").setParameter("vn", "%"+BuchTitel+"%");
+		return b;
+	}
+	
+	public List<Buch> findByAuthor(String Author) {
+		List<Buch> b = em.createQuery("SELECT b FROM Buch b WHERE b.Author Like :vn").setParameter("vn", "%"+Author+"%").getResultList();
+		//TypedQuery<Buch> p = (Buch) em.createQuery("select p from Buch p where p.BuchNummer like :vn").setParameter("vn", "%"+BuchTitel+"%");
+		return b;
+	}
+	
+	public void persist(Buch Buch) {
 		em.getTransaction().begin();
-		em.persist(ausweis);
+		em.persist(Buch);
 		em.getTransaction().commit();
 	}
 	
@@ -65,9 +76,9 @@ public class BuchDAO {
 		em.getTransaction().commit();
 	}*/
 	
-	public void update(Buch ausweis) {
+	public void update(Buch buch) {
 		em.getTransaction().begin();
-		em.merge(ausweis);
+		em.merge(buch);
 		em.getTransaction().commit();
 	}
 }

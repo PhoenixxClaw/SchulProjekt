@@ -44,6 +44,13 @@ public class BenutzerDAO {
 		return p;
 	}
 	
+	public Benutzer findByBenutzerNummer(String BenutzerNummer) {
+		Benutzer p = (Benutzer) em.createQuery("select p from Benutzer p where p.benutzerNummer = :vn")
+				.setParameter("vn", BenutzerNummer)
+				.getSingleResult();
+		return p;
+	}
+	
 	public void persist(Benutzer art) {
 		em.getTransaction().begin();
 		em.persist(art);

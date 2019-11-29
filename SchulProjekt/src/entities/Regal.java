@@ -18,10 +18,10 @@ public class Regal implements Serializable {
 	private int RegalID;
 	@Column(nullable = false, length = 60)
 	private String RegalName;
-	@Column(nullable = false)
-	private int Fachanzahl;
-	@Column(nullable = false)
-	private int freiePlaetze;
+	@Column(nullable = false, length = 20)
+	private String status;
+	@Column(nullable = false, length = 2)
+	private String Reihe;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -42,19 +42,12 @@ public class Regal implements Serializable {
 	public void setRegalName(String RegalName) {
 		this.RegalName = RegalName;
 	}   
-	public int getFachanzahl() {
-		return this.Fachanzahl;
+	
+	public String getReihe() {
+		return Reihe;
 	}
-
-	public void setFachanzahl(int Fachanzahl) {
-		this.Fachanzahl = Fachanzahl;
-	}   
-	public int getFreiePlaetze() {
-		return this.freiePlaetze;
-	}
-
-	public void setFreiePlaetze(int freiePlaetze) {
-		this.freiePlaetze = freiePlaetze;
+	public void setReihe(String reihe) {
+		Reihe = reihe;
 	}
    
 }
