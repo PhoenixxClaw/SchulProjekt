@@ -43,7 +43,7 @@ public class Benutzer implements Serializable {
 	private Boolean isAdmin;
 	
 	@Column (nullable = false, columnDefinition = "TINYINT(0)")
-	private Boolean status;
+	private String status;
 	
 	@Column(nullable = false)
 	private int benutzerNummer;
@@ -91,11 +91,11 @@ public class Benutzer implements Serializable {
 	public void setIsAdmin(Boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}   
-	public Boolean getStatus() {
+	public String getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(Boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public String getBenutzerName() {

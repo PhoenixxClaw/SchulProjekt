@@ -36,28 +36,16 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <HBox fx:id="hboxBuecher" alignment="CENTER" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <HBox fx:id="hboxBenutzer" alignment="CENTER" minWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.rowIndex="1">
                      <children>
-                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Bücher" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="168.13671875">
+                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Benutzer" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="169.884765625">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Text>
                      </children>
                   </HBox>
-                  <HBox fx:id="hboxRegalplatz" alignment="CENTER" minWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-                     <children>
-                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Regalplatz" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="150.13671875">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox fx:id="hboxAusweis" alignment="CENTER" minWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                  <HBox fx:id="hboxAusweis" alignment="CENTER" minWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.rowIndex="3">
                      <children>
                         <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Ausweis" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="176.13671875">
                            <font>
@@ -66,12 +54,24 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox fx:id="hboxBenutzer" alignment="CENTER" minWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.rowIndex="7">
+                  <HBox fx:id="hboxBuecher" alignment="CENTER" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                      <children>
-                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Benutzer" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="169.884765625">
+                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Bücher" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="168.13671875">
                            <font>
                               <Font size="13.0" />
                            </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hboxRegalplatz" alignment="CENTER" minWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                     <children>
+                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Regal" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="150.13671875">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
                         </Text>
                      </children>
                   </HBox>

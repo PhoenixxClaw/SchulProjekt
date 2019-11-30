@@ -22,6 +22,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import tableViewObjects.TableViewAusweis;
@@ -78,6 +79,9 @@ public class AusweisTabController implements Initializable {
 
 	@FXML
 	private MenuItem menuVerlaengern1Jahr;
+	
+	@FXML
+	private MenuItem menuLoeschen;
 
 	@FXML
 	void menuInformationen(ActionEvent event) {
@@ -87,7 +91,7 @@ public class AusweisTabController implements Initializable {
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/AUSWEIS_Informationen.fxml"));
 			AusweisTab = (Parent) fxmlLoader.load();
 			AusweisInformationenController aic = fxmlLoader.getController();
-			aic.setInformationen(Integer.toString(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer()));
+			aic.setInformationen(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 			stage.setScene(new Scene(AusweisTab));
 			stage.setTitle("Ausweisinformationen");
 			stage.show();
@@ -99,7 +103,8 @@ public class AusweisTabController implements Initializable {
 	@FXML
 	void menuStatusAbgelaufen(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(Integer.toString(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer()));
+		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
+				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweis.setStatus("Abgelaufen");
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
@@ -108,7 +113,8 @@ public class AusweisTabController implements Initializable {
 	@FXML
 	void menuStatusGueltig(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(Integer.toString(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer()));
+		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
+				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweis.setStatus("Gültig");
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
@@ -117,7 +123,8 @@ public class AusweisTabController implements Initializable {
 	@FXML
 	void menuStatusVerloren(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(Integer.toString(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer()));
+		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
+				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweis.setStatus("Verloren");
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
@@ -126,12 +133,13 @@ public class AusweisTabController implements Initializable {
 	@FXML
 	void menuVerlaengern1Jahr(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(Integer.toString(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer()));
+		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
+				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		String ablaufDatum = ausweis.getAblaufDatum();
 		String[] split = ablaufDatum.split("-");
 		String ablaufJahr = split[2];
-		ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr)+1);
-		ablaufDatum = split[0]+"-"+split[1]+"-"+ablaufJahr;
+		ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr) + 1);
+		ablaufDatum = split[0] + "-" + split[1] + "-" + ablaufJahr;
 		ausweis.setAblaufDatum(ablaufDatum);
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
@@ -140,23 +148,24 @@ public class AusweisTabController implements Initializable {
 	@FXML
 	void menuVerlaengern1Monat(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(Integer.toString(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer()));
+		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
+				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		String ablaufDatum = ausweis.getAblaufDatum();
 		String[] split = ablaufDatum.split("-");
 		String ablaufMonat = split[1];
 		String ablaufJahr = split[2];
-		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat)+1);
-		if (Integer.valueOf(ablaufMonat) <12) {
+		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat) + 1);
+		if (Integer.valueOf(ablaufMonat) < 12) {
 			int Monat = Integer.valueOf(ablaufMonat);
 			int rest = Monat - 12;
-			ablaufMonat = "0"+rest;
-			ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr)+1);
+			ablaufMonat = "0" + rest;
+			ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr) + 1);
 		}
-		
-		if (ablaufMonat.length()==1) {
-			ablaufMonat="0"+ablaufMonat;
+
+		if (ablaufMonat.length() == 1) {
+			ablaufMonat = "0" + ablaufMonat;
 		}
-		ablaufDatum = split[0]+"-"+ablaufMonat+"-"+ablaufJahr;
+		ablaufDatum = split[0] + "-" + ablaufMonat + "-" + ablaufJahr;
 		ausweis.setAblaufDatum(ablaufDatum);
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
@@ -165,23 +174,24 @@ public class AusweisTabController implements Initializable {
 	@FXML
 	void menuVerlaengern3Monate(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(Integer.toString(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer()));
+		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
+				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		String ablaufDatum = ausweis.getAblaufDatum();
 		String[] split = ablaufDatum.split("-");
 		String ablaufMonat = split[1];
 		String ablaufJahr = split[2];
-		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat)+3);
-		if (Integer.valueOf(ablaufMonat) <12) {
+		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat) + 3);
+		if (Integer.valueOf(ablaufMonat) < 12) {
 			int Monat = Integer.valueOf(ablaufMonat);
 			int rest = Monat - 12;
-			ablaufMonat = "0"+rest;
-			ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr)+1);
+			ablaufMonat = "0" + rest;
+			ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr) + 1);
 		}
-		
-		if (ablaufMonat.length()==1) {
-			ablaufMonat="0"+ablaufMonat;
+
+		if (ablaufMonat.length() == 1) {
+			ablaufMonat = "0" + ablaufMonat;
 		}
-		ablaufDatum = split[0]+"-"+ablaufMonat+"-"+ablaufJahr;
+		ablaufDatum = split[0] + "-" + ablaufMonat + "-" + ablaufJahr;
 		ausweis.setAblaufDatum(ablaufDatum);
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
@@ -190,27 +200,37 @@ public class AusweisTabController implements Initializable {
 	@FXML
 	void menuVerlaengern6Monate(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(Integer.toString(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer()));
+		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
+				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		String ablaufDatum = ausweis.getAblaufDatum();
 		String[] split = ablaufDatum.split("-");
 		String ablaufMonat = split[1];
 		String ablaufJahr = split[2];
-		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat)+6);
-		if (Integer.valueOf(ablaufMonat) <12) {
+		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat) + 6);
+		if (Integer.valueOf(ablaufMonat) < 12) {
 			int Monat = Integer.valueOf(ablaufMonat);
 			int rest = Monat - 12;
-			ablaufMonat = "0"+rest;
-			ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr)+1);
+			ablaufMonat = "0" + rest;
+			ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr) + 1);
 		}
-		
-		if (ablaufMonat.length()==1) {
-			ablaufMonat="0"+ablaufMonat;
+
+		if (ablaufMonat.length() == 1) {
+			ablaufMonat = "0" + ablaufMonat;
 		}
-		ablaufDatum = split[0]+"-"+ablaufMonat+"-"+ablaufJahr;
+		ablaufDatum = split[0] + "-" + ablaufMonat + "-" + ablaufJahr;
 		ausweis.setAblaufDatum(ablaufDatum);
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
 	}
+	
+	@FXML
+    void menuLoeschen(ActionEvent event) {
+		AusweisDAO ausweisDAO = new AusweisDAO();
+		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
+				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
+		ausweisDAO.delete(ausweis.getAusweisID());
+		ausweisDAO.shutdown();
+    }
 
 	@FXML
 	void btnSuchen(MouseEvent event) {
@@ -226,12 +246,17 @@ public class AusweisTabController implements Initializable {
 			tempTBLAusweis.setAblaufDatum(ausweisList.get(i).getAblaufDatum());
 			tempTBLAusweis.setAusweisNummer(ausweisList.get(i).getAusweisNummer());
 			tempTBLAusweis.setBenutzerNummer(ausweisList.get(i).getBenutzer().getBenutzerNummer());
-			tempTBLAusweis.setNachnahme(ausweisList.get(i).getBenutzer().getNachname());
+			tempTBLAusweis.setNachname(ausweisList.get(i).getBenutzer().getNachname());
 			tempTBLAusweis.setStatus(ausweisList.get(i).getStatus());
 			tableViewAusweisList.add(tempTBLAusweis);
 		}
 		ObservableList<TableViewAusweis> observableTableViewAusweisList = FXCollections
 				.observableArrayList(tableViewAusweisList);
+		colAblaufDatum.setCellValueFactory(new PropertyValueFactory<>("ablaufDatum"));
+		colBenutzerNr.setCellValueFactory(new PropertyValueFactory<>("benutzerNummer"));
+		colNachname.setCellValueFactory(new PropertyValueFactory<>("nachname"));
+		colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+		colAusweisNr.setCellValueFactory(new PropertyValueFactory<>("ausweisNummer"));
 		tblAusweis.setItems(observableTableViewAusweisList);
 		ausweisDAO.shutdown();
 	}
@@ -241,6 +266,7 @@ public class AusweisTabController implements Initializable {
 		// TODO Auto-generated method stub
 		cbbFilter.setItems(FXCollections.observableArrayList(FILTER_Ausweis.values()));
 		loadTableview();
+
 	}
 
 }

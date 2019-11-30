@@ -30,12 +30,12 @@ public class AusweisDAO {
 	}
 	
 	public List<Ausweis> findAllAusweise() {
-		TypedQuery<Ausweis> query = em.createNamedQuery("findAllAusweis", Ausweis.class);
+		TypedQuery<Ausweis> query = em.createNamedQuery("findAllAusweise", Ausweis.class);
 		List<Ausweis> collection = query.getResultList();
 		return collection;
 	}
 	
-	public Ausweis findByAusweisNummer(String AusweisNummer) {
+	public Ausweis findByAusweisNummer(int AusweisNummer) {
 		Ausweis p = (Ausweis) em.createQuery("select p from Ausweis p where p.AusweisNummer = :vn")
 				.setParameter("vn", AusweisNummer)
 				.getSingleResult();

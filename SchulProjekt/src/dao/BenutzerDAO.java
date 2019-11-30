@@ -44,7 +44,7 @@ public class BenutzerDAO {
 		return p;
 	}
 	
-	public Benutzer findByBenutzerNummer(String BenutzerNummer) {
+	public Benutzer findByBenutzerNummer(int BenutzerNummer) {
 		Benutzer p = (Benutzer) em.createQuery("select p from Benutzer p where p.benutzerNummer = :vn")
 				.setParameter("vn", BenutzerNummer)
 				.getSingleResult();

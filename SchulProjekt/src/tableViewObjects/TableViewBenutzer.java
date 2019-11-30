@@ -1,30 +1,23 @@
-/**
- * 
- */
 package tableViewObjects;
 
-/**
- * @author asdf
- *
- */
-public class TableViewAusweis {
-
-	private int ausweisNummer;
+public class TableViewBenutzer {
+	
+	private String vornahme;
 	
 	private String nachname;
 	
 	private int benutzerNummer;
 	
-	private String ablaufDatum;
-	
 	private String status;
+	
+	private String ausleihstatus;
 
-	public int getAusweisNummer() {
-		return ausweisNummer;
+	public String getVornahme() {
+		return vornahme;
 	}
 
-	public void setAusweisNummer(int ausweisNummer) {
-		this.ausweisNummer = ausweisNummer;
+	public void setVornahme(String vornahme) {
+		this.vornahme = vornahme;
 	}
 
 	public String getNachname() {
@@ -43,14 +36,6 @@ public class TableViewAusweis {
 		this.benutzerNummer = benutzerNummer;
 	}
 
-	public String getAblaufDatum() {
-		return ablaufDatum;
-	}
-
-	public void setAblaufDatum(String ablaufDatum) {
-		this.ablaufDatum = ablaufDatum;
-	}
-
 	public String getStatus() {
 		return status;
 	}
@@ -58,6 +43,12 @@ public class TableViewAusweis {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
+
+	public String getAusleihstatus() {
+		return ausleihstatus;
+	}
+
+	public void setAusleihstatus(String ausleihstatus) {
+		this.ausleihstatus = ausleihstatus;
+	}
 }

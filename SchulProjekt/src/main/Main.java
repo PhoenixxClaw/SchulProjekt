@@ -1,6 +1,8 @@
 package main;
 
+import java.io.Console;
 import java.util.Scanner;
+import java.util.logging.ConsoleHandler;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +14,8 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		
 		boolean check = false;
 		Scanner sc = new Scanner(System.in);
 		while (!check) {
