@@ -41,37 +41,10 @@ public class LoginController {
 	void btn_login(ActionEvent event) {
 
 		BenutzerDAO benutzerDAO = new BenutzerDAO();
-		/*FXMLLoader fxmlLoader;
-
-		Stage stage = new Stage();
-		Parent artikel_anlegen;
-		fxmlLoader = new FXMLLoader(getClass().getResource("/gui/MAIN_gui.fxml"));
-		artikel_anlegen = (Parent) fxmlLoader.load();
-		stage.setScene(new Scene(artikel_anlegen));
-		stage.setTitle("Mister Spex VBM");
-		Stage stage2 = (Stage) btn_login.getScene().getWindow();
-		stage2.close();
-		stage.show();*/
-		
+	
 		try {
 			Benutzer benutzer = benutzerDAO.findByBenutzerName(txt_username.getText());
 			if (benutzer.getPasswort().equalsIgnoreCase(txt_password.getText())) {
-
-				/*FXMLLoader fxmlLoader;
-
-				Stage stage = new Stage();
-				Parent artikel_anlegen;
-				fxmlLoader = new FXMLLoader(getClass().getResource("/gui/MAIN_gui.fxml"));
-				artikel_anlegen = (Parent) fxmlLoader.load();
-				stage.setScene(new Scene(artikel_anlegen));
-				stage.setTitle("Mister Spex VBM");
-				Stage stage2 = (Stage) btn_login.getScene().getWindow();
-				stage2.close();
-				stage.show();*/
-				
-				
-				
-				
 				Stage stage = new Stage();
 				Parent MainNAV;
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/MAIN_gui.fxml"));

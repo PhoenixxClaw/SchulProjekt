@@ -2,6 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -10,40 +13,54 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controller_Ausweis.AusweisTabController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller_Ausweis.AusweisTabController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0">
+      <GridPane layoutX="486.0" layoutY="506.0" prefHeight="30.0" prefWidth="416.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <GridPane layoutX="486.0" layoutY="506.0" prefHeight="30.0" prefWidth="416.0">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button fx:id="btnSuchen" mnemonicParsing="false" onMouseClicked="#btnSuchen" prefHeight="30.0" prefWidth="95.0" text="Suchen" />
-                  <Button fx:id="btnAnlegen" mnemonicParsing="false" onMouseClicked="#btnAnlegen" prefHeight="30.0" prefWidth="95.0" text="Anlegen" GridPane.columnIndex="1" />
-                  <Button fx:id="btnBearbeiten" mnemonicParsing="false" onMouseClicked="#btnBearbeiten" prefHeight="30.0" prefWidth="95.0" text="Bearbeiten" GridPane.columnIndex="2" />
-                  <Button fx:id="btnInformation" mnemonicParsing="false" onMouseClicked="#btnInformation" prefHeight="30.0" prefWidth="95.0" text="Information" GridPane.columnIndex="3" />
-               </children>
-            </GridPane>
-            <ComboBox fx:id="cbbSuche" layoutX="14.0" layoutY="506.0" prefWidth="150.0" />
-            <TextField fx:id="txSuche" layoutX="164.0" layoutY="506.0" prefHeight="31.0" prefWidth="324.0" />
-            <TableView layoutX="14.0" layoutY="14.0" prefHeight="485.0" prefWidth="880.0">
-              <columns>
-                <TableColumn fx:id="colAusweisNr" minWidth="150.0" prefWidth="75.0" text="Ausweis Nr." />
-                <TableColumn fx:id="colNachname" minWidth="150.0" prefWidth="75.0" text="Nachname" />
-                  <TableColumn fx:id="colBenutzerNr" minWidth="150.0" prefWidth="75.0" text="Benutzer Nr." />
-                  <TableColumn fx:id="colAblaufDatum" minWidth="150.0" prefWidth="75.0" text="Ablauf Datum" />
-                  <TableColumn fx:id="colStatus" minWidth="150.0" prefWidth="75.0" text="Status" />
-              </columns>
-            </TableView>
+            <Button fx:id="btnSuchen" mnemonicParsing="false" onMouseClicked="#btnSuchen" prefHeight="30.0" prefWidth="95.0" text="Suchen" />
          </children>
-      </AnchorPane>
+      </GridPane>
+      <ComboBox fx:id="cbbFilter" layoutX="14.0" layoutY="506.0" prefHeight="30.0" prefWidth="150.0" />
+      <TextField fx:id="txtSuche" layoutX="164.0" layoutY="506.0" prefHeight="30.0" prefWidth="324.0" />
+      <TableView fx:id="tblAusweis" layoutX="14.0" layoutY="14.0" prefHeight="485.0" prefWidth="880.0">
+        <columns>
+          <TableColumn fx:id="colAusweisNr" minWidth="150.0" prefWidth="169.0" text="Ausweis Nr." />
+          <TableColumn fx:id="colNachname" minWidth="150.0" prefWidth="161.0" text="Nachname" />
+            <TableColumn fx:id="colBenutzerNr" minWidth="144.0" prefWidth="188.0" text="Benutzer Nr." />
+            <TableColumn fx:id="colAblaufDatum" minWidth="150.0" prefWidth="191.0" text="Ablauf Datum" />
+            <TableColumn fx:id="colStatus" minWidth="150.0" prefWidth="170.0" text="Status" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                  <MenuItem fx:id="menuInformationen" mnemonicParsing="false" onAction="#menuInformationen" text="Information" />
+                  <Menu mnemonicParsing="false" text="Status anpassen">
+                    <items>
+                      <MenuItem fx:id="menuStatusGueltig" mnemonicParsing="false" onAction="#menuStatusGueltig" text="Gültig" />
+                        <MenuItem fx:id="menuStatusVerloren" mnemonicParsing="false" onAction="#menuStatusVerloren" text="Verloren" />
+                        <MenuItem fx:id="menuStatusAbgelaufen" mnemonicParsing="false" onAction="#menuStatusAbgelaufen" text="Abgelaufen" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Ausweis verlängern">
+                    <items>
+                      <MenuItem fx:id="menuVerlaengern1Monat" mnemonicParsing="false" onAction="#menuVerlaengern1Monat" text="1 Monat" />
+                        <MenuItem fx:id="menuVerlaengern3Monate" mnemonicParsing="false" onAction="#menuVerlaengern3Monate" text="3 Monate" />
+                        <MenuItem fx:id="menuVerlaengern6Monate" mnemonicParsing="false" onAction="#menuVerlaengern6Monate" text="6 Monate" />
+                        <MenuItem fx:id="menuVerlaengern1Jahr" mnemonicParsing="false" onAction="#menuVerlaengern1Jahr" text="1 Jahr" />
+                    </items>
+                  </Menu>
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
    </children>
 </AnchorPane>

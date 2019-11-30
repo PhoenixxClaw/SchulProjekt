@@ -24,6 +24,12 @@ public class Buch implements Serializable {
 	@Column(nullable = false, length = 60)
 	private String ISDN;
 	
+	@ManyToOne
+	private Ausweis ausweis;
+	
+	@ManyToOne
+	private Regal regal;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Buch() {
@@ -57,5 +63,23 @@ public class Buch implements Serializable {
 	public void setISDN(String ISDN) {
 		this.ISDN = ISDN;
 	}
+	public Ausweis getAusweis() {
+		return ausweis;
+	}
+	public void setAusweis(Ausweis ausweis) {
+		this.ausweis = ausweis;
+	}
+	public Regal getRegal() {
+		return regal;
+	}
+	public void setRegal(Regal regal) {
+		this.regal = regal;
+	}
+	
+	@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return "Titel: "+this.Titel+" | Author: "+this.Author;
+		}
    
 }

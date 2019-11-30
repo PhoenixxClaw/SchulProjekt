@@ -100,10 +100,10 @@ public class MainNAVController implements Initializable{
 			}
 			try {
 
-				Home_BuchTAB.setText("Ausweis");
+				Home_BuchTAB.setText("Bücher");
 				Home_BuchTAB.setClosable(true);
-				Home_BuchTAB.setId("Ausweis");
-				Home_BuchTAB.setContent(FXMLLoader.load(getClass().getResource("/gui/TAB_Buch.fxml")));
+				Home_BuchTAB.setId("Bücher");
+				Home_BuchTAB.setContent(FXMLLoader.load(getClass().getResource("/gui/TAB_Buecher.fxml")));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -126,9 +126,9 @@ public class MainNAVController implements Initializable{
 			}
 			try {
 
-				Home_RegalTAB.setText("Ausweis");
+				Home_RegalTAB.setText("Regal");
 				Home_RegalTAB.setClosable(true);
-				Home_RegalTAB.setId("Ausweis");
+				Home_RegalTAB.setId("Regal");
 				Home_RegalTAB.setContent(FXMLLoader.load(getClass().getResource("/gui/TAB_Regal.fxml")));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

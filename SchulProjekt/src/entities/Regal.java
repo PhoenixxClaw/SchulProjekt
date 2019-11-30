@@ -2,6 +2,8 @@ package entities;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -22,6 +24,9 @@ public class Regal implements Serializable {
 	private String status;
 	@Column(nullable = false, length = 2)
 	private String Reihe;
+	
+	@OneToMany(mappedBy = "regal", orphanRemoval = true)
+	private List<Buch> buecher;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -48,6 +53,18 @@ public class Regal implements Serializable {
 	}
 	public void setReihe(String reihe) {
 		Reihe = reihe;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public List<Buch> getBuecher() {
+		return buecher;
+	}
+	public void setBuecher(List<Buch> buecher) {
+		this.buecher = buecher;
 	}
    
 }

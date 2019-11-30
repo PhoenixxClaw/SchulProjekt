@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -42,6 +44,12 @@ public class Benutzer implements Serializable {
 	
 	@Column (nullable = false, columnDefinition = "TINYINT(0)")
 	private Boolean status;
+	
+	@Column(nullable = false)
+	private int benutzerNummer;
+	
+	@OneToMany(mappedBy = "benutzer", orphanRemoval = true)
+	private List<Ausweis> ausweis;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -101,6 +109,24 @@ public class Benutzer implements Serializable {
 	}
 	public void setPasswort(String passwort) {
 		this.passwort = passwort;
+	}
+	public String getGeburtsdatum() {
+		return geburtsdatum;
+	}
+	public void setGeburtsdatum(String geburtsdatum) {
+		this.geburtsdatum = geburtsdatum;
+	}
+	public List<Ausweis> getAusweis() {
+		return ausweis;
+	}
+	public void setAusweis(List<Ausweis> ausweis) {
+		this.ausweis = ausweis;
+	}
+	public int getBenutzerNummer() {
+		return benutzerNummer;
+	}
+	public void setBenutzerNummer(int benutzerNummer) {
+		this.benutzerNummer = benutzerNummer;
 	}
    
 }

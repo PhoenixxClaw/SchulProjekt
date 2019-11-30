@@ -7,7 +7,7 @@
 			<attribute name="owner.project.facets" value="jpt.jpa;#system#"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySGLConector">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySGLConnector">
 		<attributes>
 			<attribute name="owner.project.facets" value="jpt.jpa;#system#"/>
 		</attributes>

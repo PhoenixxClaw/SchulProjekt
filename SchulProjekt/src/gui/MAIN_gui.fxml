@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="600.0" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller_MainNav.MainNAVController">
+<AnchorPane maxHeight="600.0" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="1050.0" styleClass="background" stylesheets="@../css/MainNav.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller_MainNav.MainNAVController">
    <children>
-      <AnchorPane layoutY="50.0" prefHeight="550.0" prefWidth="150.0">
+      <AnchorPane layoutY="50.0" prefHeight="550.0" prefWidth="150.0" styleClass="navpane" stylesheets="@../css/MainNav.css">
          <children>
             <GridPane prefHeight="550.0" prefWidth="150.0">
               <columnConstraints>
@@ -36,7 +36,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <HBox fx:id="hboxBuecher" alignment="CENTER" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <HBox fx:id="hboxBuecher" alignment="CENTER" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <children>
                         <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Bücher" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="168.13671875">
                            <font>
@@ -45,7 +45,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox fx:id="hboxRegalplatz" alignment="CENTER" minWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <HBox fx:id="hboxRegalplatz" alignment="CENTER" minWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <children>
                         <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Regalplatz" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="150.13671875">
                            <font>
@@ -57,7 +57,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox fx:id="hboxAusweis" alignment="CENTER" minWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                  <HBox fx:id="hboxAusweis" alignment="CENTER" minWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                      <children>
                         <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Ausweis" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="176.13671875">
                            <font>
@@ -66,7 +66,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <HBox fx:id="hboxBenutzer" alignment="CENTER" minWidth="150.0" GridPane.rowIndex="7">
+                  <HBox fx:id="hboxBenutzer" alignment="CENTER" minWidth="150.0" styleClass="home_gui_navpane_hbox" stylesheets="@../css/MainNav.css" GridPane.rowIndex="7">
                      <children>
                         <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Benutzer" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="169.884765625">
                            <font>
@@ -79,7 +79,7 @@
             </GridPane>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="50.0" prefWidth="1050.0" />
-      <TabPane fx:id="tabPane" layoutX="150.0" layoutY="51.0" minHeight="550.0" minWidth="900.0" prefHeight="550.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE" />
+      <AnchorPane prefHeight="50.0" prefWidth="1050.0" styleClass="background_header" stylesheets="@../css/MainNav.css" />
+      <TabPane fx:id="tabPane" layoutX="150.0" layoutY="51.0" minHeight="550.0" minWidth="900.0" prefHeight="550.0" prefWidth="750.0" styleClass="background_tab" stylesheets="@../css/MainNav.css" tabClosingPolicy="UNAVAILABLE" />
    </children>
 </AnchorPane>
