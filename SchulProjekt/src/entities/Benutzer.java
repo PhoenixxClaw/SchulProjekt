@@ -30,6 +30,12 @@ public class Benutzer implements Serializable {
 	@Column(nullable = false, length = 60)
 	private String adresse;
 	
+	@Column(nullable = false)
+	private int PLZ;
+	
+	@Column(nullable = false, length = 60)
+	private String ORT;
+	
 	@Column(nullable = false, length = 60)
 	private String benutzerName;
 	
@@ -42,11 +48,11 @@ public class Benutzer implements Serializable {
 	@Column (nullable = false, columnDefinition = "TINYINT(0)")
 	private Boolean isAdmin;
 	
-	@Column (nullable = false, columnDefinition = "TINYINT(0)")
+	@Column (nullable = false)
 	private String status;
 	
-	@Column(nullable = false)
-	private int benutzerNummer;
+	@Column(nullable = false, length = 10)
+	private String benutzerNummer;
 	
 	@OneToMany(mappedBy = "benutzer", orphanRemoval = true)
 	private List<Ausweis> ausweis;
@@ -122,11 +128,23 @@ public class Benutzer implements Serializable {
 	public void setAusweis(List<Ausweis> ausweis) {
 		this.ausweis = ausweis;
 	}
-	public int getBenutzerNummer() {
+	public String getBenutzerNummer() {
 		return benutzerNummer;
 	}
-	public void setBenutzerNummer(int benutzerNummer) {
+	public void setBenutzerNummer(String benutzerNummer) {
 		this.benutzerNummer = benutzerNummer;
+	}
+	public int getPLZ() {
+		return PLZ;
+	}
+	public void setPLZ(int pLZ) {
+		PLZ = pLZ;
+	}
+	public String getORT() {
+		return ORT;
+	}
+	public void setORT(String oRT) {
+		ORT = oRT;
 	}
    
 }

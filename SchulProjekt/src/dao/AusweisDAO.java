@@ -35,7 +35,7 @@ public class AusweisDAO {
 		return collection;
 	}
 	
-	public Ausweis findByAusweisNummer(int AusweisNummer) {
+	public Ausweis findByAusweisNummer(String AusweisNummer) {
 		Ausweis p = (Ausweis) em.createQuery("select p from Ausweis p where p.AusweisNummer = :vn")
 				.setParameter("vn", AusweisNummer)
 				.getSingleResult();

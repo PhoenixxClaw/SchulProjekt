@@ -39,10 +39,10 @@ public class MainNAVController implements Initializable{
     @FXML
     private TabPane tabPane;
     
-    public AusweisTabController ausweisTabController;
-    public BenutzerTabController benutzerTabController;
-    public RegalTabController regalTabController;
-    public BuchTabController buchTabController;
+    public static AusweisTabController ausweisTabController;
+    public static BenutzerTabController benutzerTabController;
+    public static RegalTabController regalTabController;
+    public static BuchTabController buchTabController;
 
     private Tab Home_AusweisTAB = new Tab();
 	private Tab Home_BenutzerTAB = new Tab();

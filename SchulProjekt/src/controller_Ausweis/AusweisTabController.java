@@ -105,7 +105,6 @@ public class AusweisTabController implements Initializable {
 		AusweisDAO ausweisDAO = new AusweisDAO();
 		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		ausweis.setStatus("Abgelaufen");
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
 	}
@@ -115,7 +114,6 @@ public class AusweisTabController implements Initializable {
 		AusweisDAO ausweisDAO = new AusweisDAO();
 		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		ausweis.setStatus("Gültig");
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
 	}
@@ -125,7 +123,6 @@ public class AusweisTabController implements Initializable {
 		AusweisDAO ausweisDAO = new AusweisDAO();
 		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		ausweis.setStatus("Verloren");
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
 	}

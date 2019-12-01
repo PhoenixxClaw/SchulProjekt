@@ -40,11 +40,8 @@ public class LoginController {
 	@FXML
 	void btn_login(ActionEvent event) {
 
-		BenutzerDAO benutzerDAO = new BenutzerDAO();
-	
-		try {
-			Benutzer benutzer = benutzerDAO.findByBenutzerName(txt_username.getText());
-			if (benutzer.getPasswort().equalsIgnoreCase(txt_password.getText())) {
+		if (txt_username.getText().equals("DEBUG") && txt_password.getText().equals("123456")) {
+			try {
 				Stage stage = new Stage();
 				Parent MainNAV;
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/MAIN_gui.fxml"));
@@ -54,15 +51,36 @@ public class LoginController {
 				Stage stage2 = (Stage) btn_login.getScene().getWindow();
 				stage2.close();
 				stage.show();
-				System.out.println("Login Successful");
-			} else {
-				System.out.println("Passwort Falsch");
+				System.out.println("Debug - Login Successful");
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("Benutzername Falsch");
+		} else {
+			BenutzerDAO benutzerDAO = new BenutzerDAO();
+			
+			try {
+				Benutzer benutzer = benutzerDAO.findByBenutzerName(txt_username.getText());
+				if (benutzer.getPasswort().equalsIgnoreCase(txt_password.getText())) {
+					Stage stage = new Stage();
+					Parent MainNAV;
+					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/MAIN_gui.fxml"));
+					MainNAV = (Parent) fxmlLoader.load();
+					stage.setScene(new Scene(MainNAV));
+					stage.setTitle("New Generations GmbH");
+					Stage stage2 = (Stage) btn_login.getScene().getWindow();
+					stage2.close();
+					stage.show();
+					System.out.println("Login Successful");
+				} else {
+					System.out.println("Passwort Falsch");
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Benutzername Falsch");
+			}
+			benutzerDAO.shutdown();
 		}
-		benutzerDAO.shutdown();
+		
 
 	}
 

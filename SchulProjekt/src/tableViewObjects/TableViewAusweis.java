@@ -9,21 +9,21 @@ package tableViewObjects;
  */
 public class TableViewAusweis {
 
-	private int ausweisNummer;
+	private String ausweisNummer;
 	
 	private String nachname;
 	
-	private int benutzerNummer;
+	private String benutzerNummer;
 	
 	private String ablaufDatum;
 	
 	private String status;
 
-	public int getAusweisNummer() {
+	public String getAusweisNummer() {
 		return ausweisNummer;
 	}
 
-	public void setAusweisNummer(int ausweisNummer) {
+	public void setAusweisNummer(String ausweisNummer) {
 		this.ausweisNummer = ausweisNummer;
 	}
 
@@ -35,11 +35,11 @@ public class TableViewAusweis {
 		this.nachname = nachnahme;
 	}
 
-	public int getBenutzerNummer() {
+	public String getBenutzerNummer() {
 		return benutzerNummer;
 	}
 
-	public void setBenutzerNummer(int benutzerNummer) {
+	public void setBenutzerNummer(String benutzerNummer) {
 		this.benutzerNummer = benutzerNummer;
 	}
 

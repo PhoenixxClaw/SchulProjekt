@@ -6,7 +6,7 @@ public class TableViewBenutzer {
 	
 	private String nachname;
 	
-	private int benutzerNummer;
+	private String benutzerNummer;
 	
 	private String status;
 	
@@ -28,11 +28,11 @@ public class TableViewBenutzer {
 		this.nachname = nachnahme;
 	}
 
-	public int getBenutzerNummer() {
+	public String getBenutzerNummer() {
 		return benutzerNummer;
 	}
 
-	public void setBenutzerNummer(int benutzerNummer) {
+	public void setBenutzerNummer(String benutzerNummer) {
 		this.benutzerNummer = benutzerNummer;
 	}
 

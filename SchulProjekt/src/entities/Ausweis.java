@@ -30,8 +30,8 @@ public class Ausweis implements Serializable {
 	@Column (nullable = false, length = 60)
 	private String Status;
 	
-	@Column (nullable = false)
-	private int AusweisNummer;
+	@Column (nullable = false, length = 10)
+	private String AusweisNummer;
 	
 	@ManyToOne
 	private Benutzer benutzer;
@@ -72,10 +72,10 @@ public class Ausweis implements Serializable {
 	public void setStatus(String Status) {
 		this.Status = Status;
 	}
-	public int getAusweisNummer() {
+	public String getAusweisNummer() {
 		return AusweisNummer;
 	}
-	public void setAusweisNummer(int ausweisNummer) {
+	public void setAusweisNummer(String ausweisNummer) {
 		AusweisNummer = ausweisNummer;
 	}
 	public Benutzer getBenutzer() {

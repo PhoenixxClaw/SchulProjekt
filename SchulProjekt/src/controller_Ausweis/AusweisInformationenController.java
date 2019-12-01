@@ -38,11 +38,11 @@ public class AusweisInformationenController {
     	stage.close();
     }
     
-    public void setInformationen(int ausweisNummer) {
+    public void setInformationen(String ausweisNummer) {
     	AusweisDAO ausweisDAO = new AusweisDAO();
     	Ausweis ausweis = ausweisDAO.findByAusweisNummer(ausweisNummer);
     	txtAblaufDatum.setText(ausweis.getAblaufDatum());
-    	txtAusweisNummer.setText(Integer.toString(ausweisNummer));
+    	txtAusweisNummer.setText(ausweisNummer);
     	txtErstellDatum.setText(ausweis.getErstellDatum());
     	txtStatus.setText(ausweis.getStatus());
     	lstBuecher.setItems(FXCollections.observableArrayList(ausweis.getBuecher()));
