@@ -128,9 +128,9 @@ public class MainNAVController implements Initializable{
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/TAB_Buecher.fxml"));
 				BuchTab = (Parent) loader.load();
 				buchTabController = loader.getController();
-				Home_BuchTAB.setText("Bücher");
+				Home_BuchTAB.setText("BÃ¼cher");
 				Home_BuchTAB.setClosable(true);
-				Home_BuchTAB.setId("Bücher");
+				Home_BuchTAB.setId("BÃ¼cher");
 				Home_BuchTAB.setContent(BuchTab);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

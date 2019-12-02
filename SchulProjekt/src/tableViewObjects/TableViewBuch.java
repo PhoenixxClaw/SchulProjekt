@@ -2,6 +2,8 @@ package tableViewObjects;
 
 public class TableViewBuch {
 
+	private int buchID;
+	
 	private String titel;
 	
 	private String author;
@@ -50,5 +52,13 @@ public class TableViewBuch {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public int getBuchID() {
+		return buchID;
+	}
+
+	public void setBuchID(int buchID) {
+		this.buchID = buchID;
 	}
 }

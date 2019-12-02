@@ -151,12 +151,12 @@ public class BenutzerTabController implements Initializable {
 			tempTBLBenutzer.setStatus(benutzerList.get(i).getStatus());
 			
 			for (int j = 0; j < benutzerList.get(i).getAusweis().size(); j++) {
-				if (benutzerList.get(i).getAusweis().get(j).getStatus().equals("Gültig")) {
+				if (benutzerList.get(i).getAusweis().get(j).getStatus().equals("GÃ¼ltig")) {
 					Ausweis ausweis = benutzerList.get(i).getAusweis().get(j);
 					if (ausweis.getBuecher().size()==0) {
-						tempTBLBenutzer.setAusleihstatus("Keine Bücher ausgeliehen");
+						tempTBLBenutzer.setAusleihstatus("Keine BÃ¼cher ausgeliehen");
 					} else {
-						tempTBLBenutzer.setAusleihstatus(ausweis.getBuecher().size()+" Bücher ausgeliehen");
+						tempTBLBenutzer.setAusleihstatus(ausweis.getBuecher().size()+" BÃ¼cher ausgeliehen");
 					}
 				}
 			}

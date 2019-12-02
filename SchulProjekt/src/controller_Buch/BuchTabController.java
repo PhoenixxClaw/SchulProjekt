@@ -12,7 +12,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
@@ -20,6 +23,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import tableViewObjects.TableViewBuch;
 
 public class BuchTabController implements Initializable {
@@ -66,6 +70,17 @@ public class BuchTabController implements Initializable {
     @FXML
     void btnAnlegen(MouseEvent event) {
 
+    	try {
+			Stage stage = new Stage();
+			Parent tab;
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/BUCH_Anlegen.fxml"));
+			tab = (Parent) fxmlLoader.load();
+			stage.setScene(new Scene(tab));
+			stage.setTitle("Buch anlegen");
+			stage.show();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
     }
 
     @FXML
@@ -76,11 +91,37 @@ public class BuchTabController implements Initializable {
     @FXML
     void menuBearbeiten(ActionEvent event) {
 
+    	try {
+			Stage stage = new Stage();
+			Parent BuchTab;
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/BUCH_Bearbeiten.fxml"));
+			BuchTab = (Parent) fxmlLoader.load();
+			BuchBearbeitenController bbc = fxmlLoader.getController();
+			bbc.setBuch(tblBuecher.getSelectionModel().getSelectedItem().getBuchID());
+			stage.setScene(new Scene(BuchTab));
+			stage.setTitle("Buch Bearbeiten");
+			stage.show();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
     }
 
     @FXML
     void menuInformationen(ActionEvent event) {
 
+    	try {
+			Stage stage = new Stage();
+			Parent BuchTab;
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/BUCH_Informationen.fxml"));
+			BuchTab = (Parent) fxmlLoader.load();
+			BuchInformationenController bic = fxmlLoader.getController();
+			bic.setBuch(tblBuecher.getSelectionModel().getSelectedItem().getBuchID());
+			stage.setScene(new Scene(BuchTab));
+			stage.setTitle("Buchinformationen");
+			stage.show();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
     }
 
     @FXML
@@ -102,7 +143,10 @@ public class BuchTabController implements Initializable {
 			TableViewBuch tempTBLBuch = new TableViewBuch();
 			tempTBLBuch.setAuthor(buchList.get(i).getAuthor());
 			tempTBLBuch.setISDN(buchList.get(i).getISDN());
-			tempTBLBuch.setRegal(buchList.get(i).getRegal().getRegalName());
+			if (buchList.get(i).getRegal()!=null) {
+				tempTBLBuch.setRegal(buchList.get(i).getRegal().getRegalName());
+			}
+			tempTBLBuch.setBuchID(buchList.get(i).getBuchID());
 			if (buchList.get(i).getAusweis()!=null) {
 				tempTBLBuch.setStatus("Ausgeliehen");
 			} else {

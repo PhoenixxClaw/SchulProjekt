@@ -66,5 +66,11 @@ public class Regal implements Serializable {
 	public void setBuecher(List<Buch> buecher) {
 		this.buecher = buecher;
 	}
+	
+	@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return "Regal: "+this.RegalName+" | Reihe: "+this.Reihe;
+		}
    
 }

@@ -12,5 +12,6 @@
 			<attribute name="owner.project.facets" value="jpt.jpa;#system#"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/leon.limacardoso/servers/wildfly-16.0.0.Final/standalone/deployments/mysql-connector-java-8.0.15.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
