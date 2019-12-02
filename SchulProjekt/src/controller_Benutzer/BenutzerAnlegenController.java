@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import alerts.Alerts;
 import controller_MainNav.MainNAVController;
 import dao.AusweisDAO;
 import dao.BenutzerDAO;
@@ -124,8 +125,22 @@ public class BenutzerAnlegenController {
 		benutzerDAO.shutdown();
 		
 		MainNAVController.benutzerTabController.loadTableView();
-    	
-    	
+    	Alerts alert = new Alerts();
+		boolean anlegen = alert.benutzerWeiterenBenutzerAnlegen();
+		if (anlegen) {
+			txtAdresse.clear();
+			txtBenutzername.clear();
+			txtGeburtstag.clear();
+			txtNachname.clear();
+			txtOrt.clear();
+			txtPasswort.clear();
+			txtPLZ.clear();
+			txtVorname.clear();
+			chkAdmin.setSelected(false);
+		} else {
+			Stage stage = (Stage) btnSchliessen.getScene().getWindow();
+	    	stage.close();
+		}
     }
 
 }

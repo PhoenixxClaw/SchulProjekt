@@ -107,6 +107,7 @@ public class AusweisTabController implements Initializable {
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
+		loadTableview();
 	}
 
 	@FXML
@@ -116,6 +117,7 @@ public class AusweisTabController implements Initializable {
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
+		loadTableview();
 	}
 
 	@FXML
@@ -125,6 +127,7 @@ public class AusweisTabController implements Initializable {
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
+		loadTableview();
 	}
 
 	@FXML
@@ -140,6 +143,7 @@ public class AusweisTabController implements Initializable {
 		ausweis.setAblaufDatum(ablaufDatum);
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
+		loadTableview();
 	}
 
 	@FXML
@@ -152,7 +156,7 @@ public class AusweisTabController implements Initializable {
 		String ablaufMonat = split[1];
 		String ablaufJahr = split[2];
 		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat) + 1);
-		if (Integer.valueOf(ablaufMonat) < 12) {
+		if (Integer.valueOf(ablaufMonat) > 12) {
 			int Monat = Integer.valueOf(ablaufMonat);
 			int rest = Monat - 12;
 			ablaufMonat = "0" + rest;
@@ -166,6 +170,7 @@ public class AusweisTabController implements Initializable {
 		ausweis.setAblaufDatum(ablaufDatum);
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
+		loadTableview();
 	}
 
 	@FXML
@@ -178,7 +183,7 @@ public class AusweisTabController implements Initializable {
 		String ablaufMonat = split[1];
 		String ablaufJahr = split[2];
 		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat) + 3);
-		if (Integer.valueOf(ablaufMonat) < 12) {
+		if (Integer.valueOf(ablaufMonat) > 12) {
 			int Monat = Integer.valueOf(ablaufMonat);
 			int rest = Monat - 12;
 			ablaufMonat = "0" + rest;
@@ -192,6 +197,7 @@ public class AusweisTabController implements Initializable {
 		ausweis.setAblaufDatum(ablaufDatum);
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
+		loadTableview();
 	}
 
 	@FXML
@@ -204,7 +210,7 @@ public class AusweisTabController implements Initializable {
 		String ablaufMonat = split[1];
 		String ablaufJahr = split[2];
 		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat) + 6);
-		if (Integer.valueOf(ablaufMonat) < 12) {
+		if (Integer.valueOf(ablaufMonat) > 12) {
 			int Monat = Integer.valueOf(ablaufMonat);
 			int rest = Monat - 12;
 			ablaufMonat = "0" + rest;
@@ -218,6 +224,7 @@ public class AusweisTabController implements Initializable {
 		ausweis.setAblaufDatum(ablaufDatum);
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
+		loadTableview();
 	}
 	
 	@FXML
@@ -227,6 +234,7 @@ public class AusweisTabController implements Initializable {
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweisDAO.delete(ausweis.getAusweisID());
 		ausweisDAO.shutdown();
+		loadTableview();
     }
 
 	@FXML

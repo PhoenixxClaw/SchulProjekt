@@ -100,8 +100,8 @@ public class BenutzerTabController implements Initializable {
 			Parent BenutzerTab;
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/BENUTZER_Bearbeiten.fxml"));
 			BenutzerTab = (Parent) fxmlLoader.load();
-			//BenutzerBearbeitenController bbc = loader.getController();
-			//bbc.setInformationen();
+			BenutzerBearbeitenController bbc = fxmlLoader.getController();
+			bbc.setBenutzer(tblBenutzer.getSelectionModel().getSelectedItem().getBenutzerNummer());
 			stage.setScene(new Scene(BenutzerTab));
 			stage.setTitle("Benutzer bearbeiten");
 			stage.show();
@@ -118,10 +118,10 @@ public class BenutzerTabController implements Initializable {
 			Parent BenutzerTab;
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/BENUTZER_Informationen.fxml"));
 			BenutzerTab = (Parent) fxmlLoader.load();
-			//BenutzerInformationenController bic = loader.getController();
-			//bic.setInformationen();
+			BenutzerInformationenController bic = fxmlLoader.getController();
+			bic.setBenutzer(tblBenutzer.getSelectionModel().getSelectedItem().getBenutzerNummer());
 			stage.setScene(new Scene(BenutzerTab));
-			stage.setTitle("Benutzer anlegen");
+			stage.setTitle("Benutzerinformationen");
 			stage.show();
 		} catch (Exception e) {
 			System.out.println(e);
