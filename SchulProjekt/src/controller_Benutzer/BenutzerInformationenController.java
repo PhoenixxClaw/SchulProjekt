@@ -58,6 +58,8 @@ public class BenutzerInformationenController {
     	txtOrt.setText(benutzer.getORT());
     	txtPLZ.setText(Integer.toString(benutzer.getPLZ()));
     	txtVorname.setText(benutzer.getVorname());
+    	chkAdmin.setSelected(benutzer.getIsAdmin());
+    	benutzerDAO.shutdown();
     }
 
 }

@@ -47,7 +47,7 @@ public class BuchInformationenController   {
     		txtRegal.setText(buch.getRegal().getRegalName()+" | Reihe: "+buch.getRegal().getReihe());
 		}
     	txtTitel.setText(buch.getTitel());
-    	if (buch.getAusweis()!=null) {
+    	if (buch.getAusweis()==null) {
 			txtStatus.setText("Buch nicht verliehen");
 		} else {
 			txtStatus.setText("Buch verliehen");

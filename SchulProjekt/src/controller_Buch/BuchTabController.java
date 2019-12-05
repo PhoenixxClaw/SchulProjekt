@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import dao.BenutzerDAO;
 import dao.BuchDAO;
+import entities.Benutzer;
 import entities.Buch;
 import filter_ENums.FILTER_Buecher;
 import javafx.collections.FXCollections;
@@ -127,6 +129,10 @@ public class BuchTabController implements Initializable {
     @FXML
     void menuLoeschen(ActionEvent event) {
 
+    	BuchDAO buchDAO = new BuchDAO();
+		buchDAO.delete(tblBuecher.getSelectionModel().getSelectedItem().getBuchID());
+		buchDAO.shutdown();
+		loadTableView();
     }
 
     @FXML

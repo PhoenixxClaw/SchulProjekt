@@ -105,7 +105,7 @@ public class BenutzerAnlegenController {
 		String ablaufDatum = split[0] + "-" + split[1] + "-" + ablaufJahr;
 		ausweis.setAblaufDatum(ablaufDatum);
 		ausweis.setBenutzer(benutzer);
-		ausweis.setStatus("Gültig");
+		ausweis.setStatus("GÃ¼ltig");
 		String ausweisNummer = "1";
     	int ausweisDaoSize = ausweisDAO.findAllAusweise().size();
     	int ausweisNeededSize = ausweisDaoSize +1;

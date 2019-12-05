@@ -135,6 +135,7 @@ public class BenutzerTabController implements Initializable {
 		Benutzer benutzer = benutzerDAO.findByBenutzerNummer(tblBenutzer.getSelectionModel().getSelectedItem().getBenutzerNummer());
 		benutzerDAO.delete(benutzer.getBenutzerID());
 		benutzerDAO.shutdown();
+		loadTableView();
 	}
 
 	
@@ -144,6 +145,7 @@ public class BenutzerTabController implements Initializable {
 		List<TableViewBenutzer> tableViewBenutzerList = new ArrayList<TableViewBenutzer>();
 		List<Benutzer> benutzerList = benutzerDAO.findAllBenutzer();
 		for (int i = 0; i < benutzerList.size(); i++) {
+			
 			TableViewBenutzer tempTBLBenutzer = new TableViewBenutzer();
 			tempTBLBenutzer.setBenutzerNummer(benutzerList.get(i).getBenutzerNummer());
 			tempTBLBenutzer.setNachname(benutzerList.get(i).getNachname());
@@ -153,7 +155,8 @@ public class BenutzerTabController implements Initializable {
 			for (int j = 0; j < benutzerList.get(i).getAusweis().size(); j++) {
 				if (benutzerList.get(i).getAusweis().get(j).getStatus().equals("Gültig")) {
 					Ausweis ausweis = benutzerList.get(i).getAusweis().get(j);
-					if (ausweis.getBuecher().size()==0) {
+					if (ausweis.getBuecher().size()==0 || ausweis.getBuecher() == null) {
+						
 						tempTBLBenutzer.setAusleihstatus("Keine Bücher ausgeliehen");
 					} else {
 						tempTBLBenutzer.setAusleihstatus(ausweis.getBuecher().size()+" Bücher ausgeliehen");
