@@ -38,6 +38,28 @@ public class Alerts {
 		}
 	}
 	
+	public boolean regalWeiteresRegalAnlegen() {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Weiteres Regal anlegen");
+		alert.setHeaderText("Weiteres Regal anlegen");
+		alert.setContentText("Möchten Sie ein weiteres Regal anlegen?");
+
+		ButtonType buttonTypeJa = new ButtonType("Ja");
+		ButtonType buttonTypeNein = new ButtonType("Nein");
+
+		alert.getButtonTypes().setAll(buttonTypeJa, buttonTypeNein);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeJa) {
+			return true;
+		} else {
+			if (result.get() == buttonTypeNein) {
+				return false;
+			} else
+				return false;
+		}
+	}
+	
 	public boolean buchWeiteresBuchAnlegen() {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Weiteres Buch anlegen");
