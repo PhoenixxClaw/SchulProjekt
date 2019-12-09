@@ -24,6 +24,8 @@ public class Regal implements Serializable {
 	private String status;
 	@Column(nullable = false, length = 2)
 	private String Reihe;
+	@Column(nullable = false)
+	private int Fachanzahl;
 	
 	@OneToMany(mappedBy = "regal", orphanRemoval = true)
 	private List<Buch> buecher;
@@ -67,6 +69,12 @@ public class Regal implements Serializable {
 		this.buecher = buecher;
 	}
 	
+	public int getFachanzahl() {
+		return Fachanzahl;
+	}
+	public void setFachanzahl(int fachanzahl) {
+		Fachanzahl = fachanzahl;
+	}
 	@Override
 		public String toString() {
 			// TODO Auto-generated method stub

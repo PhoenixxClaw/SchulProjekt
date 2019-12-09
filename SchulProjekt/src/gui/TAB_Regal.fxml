@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -26,9 +28,7 @@
         </rowConstraints>
          <children>
             <Button fx:id="btnSuchen" mnemonicParsing="false" onMouseClicked="#btnSuchen" prefHeight="30.0" prefWidth="95.0" text="Suchen" />
-            <Button fx:id="btnAnlegen" mnemonicParsing="false" onMouseClicked="#btnAnlegen" prefHeight="30.0" prefWidth="95.0" text="Anlegen" GridPane.columnIndex="1" />
-            <Button fx:id="btnBearbeiten" mnemonicParsing="false" onMouseClicked="#btnBearbeiten" prefHeight="30.0" prefWidth="95.0" text="Bearbeiten" GridPane.columnIndex="2" />
-            <Button fx:id="btnInformation" mnemonicParsing="false" onMouseClicked="#btnInformation" prefHeight="30.0" prefWidth="95.0" text="Information" GridPane.columnIndex="3" />
+            <Button fx:id="btnAnlegen" mnemonicParsing="false" onMouseClicked="#btnAnlegen" prefHeight="30.0" prefWidth="95.0" text="Anlegen" GridPane.columnIndex="3" />
          </children>
       </GridPane>
       <TableView fx:id="tblRegal" layoutX="14.0" layoutY="14.0" prefHeight="455.0" prefWidth="880.0">
@@ -37,6 +37,15 @@
             <TableColumn fx:id="colFaecheranzahl" minWidth="150.0" prefWidth="293.0" text="Fächeranzahl" />
             <TableColumn fx:id="colReihe" minWidth="150.0" prefWidth="293.0" text="Reihe" />
         </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem fx:id="menuInformationen" mnemonicParsing="false" onAction="#menuInformationen" text="Informationen" />
+                  <MenuItem fx:id="menuBearbeiten" mnemonicParsing="false" onAction="#menuBearbeiten" text="Bearbeiten" />
+                  <MenuItem fx:id="menuLoeschen" mnemonicParsing="false" onAction="#menuLoeschen" text="Löschen" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
       </TableView>
    </children>
 </AnchorPane>
