@@ -1,5 +1,7 @@
 package controller_Buch;
 
+import java.util.List;
+
 import controller_MainNav.MainNAVController;
 import dao.BuchDAO;
 import dao.RegalDAO;
@@ -62,8 +64,8 @@ public class BuchBearbeitenController {
     	RegalDAO regalDAO = new RegalDAO();
     	txtAuthor.setText(buch.getAuthor());
     	txtISDN.setText(buch.getISDN());
+    	lstRegal.setItems(FXCollections.observableArrayList(regalDAO.findAllRegale()));
     	if (buch.getRegal()!=null) {
-    		lstRegal.setItems(FXCollections.observableArrayList(regalDAO.findAllRegale()));
         	lstRegal.getSelectionModel().select(buch.getRegal());
     	}
     	txtTitel.setText(buch.getTitel());
