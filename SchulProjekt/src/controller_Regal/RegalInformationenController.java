@@ -34,7 +34,7 @@ public class RegalInformationenController {
     	Stage stage = (Stage) btnSchliessen.getScene().getWindow();
     	stage.close();
     }
-    public void loadBuch(int RegalID) {
+    public void setRegal(int RegalID) {
     	RegalDAO regalDAO = new RegalDAO();
     	Regal regal = regalDAO.find(RegalID);
     	txtFaecheranzahl.setText(Integer.toString(regal.getFachanzahl()));

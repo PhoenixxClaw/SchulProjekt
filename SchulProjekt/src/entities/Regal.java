@@ -11,6 +11,7 @@ import javax.persistence.*;
  *
  */
 @Entity
+@NamedQueries({ @NamedQuery(name = "findAllRegal", query = "SELECT r FROM Regal r")}) 
 
 public class Regal implements Serializable {
 
@@ -20,8 +21,6 @@ public class Regal implements Serializable {
 	private int RegalID;
 	@Column(nullable = false, length = 60)
 	private String RegalName;
-	@Column(nullable = false, length = 20)
-	private String status;
 	@Column(nullable = false, length = 2)
 	private String Reihe;
 	@Column(nullable = false)
@@ -55,12 +54,6 @@ public class Regal implements Serializable {
 	}
 	public void setReihe(String reihe) {
 		Reihe = reihe;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
 	}
 	public List<Buch> getBuecher() {
 		return buecher;

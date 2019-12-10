@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import controller_Buch.BuchBearbeitenController;
 import dao.BuchDAO;
 import dao.RegalDAO;
 import entities.Buch;
@@ -15,7 +16,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
@@ -24,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import tableViewObjects.TableViewBuch;
 import tableViewObjects.TableViewRegal;
 
@@ -65,6 +70,17 @@ public class RegalTabController implements Initializable {
     @FXML
     void btnAnlegen(MouseEvent event) {
 
+    	try {
+			Stage stage = new Stage();
+			Parent BuchTab;
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/REGAL_Anlegen.fxml"));
+			BuchTab = (Parent) fxmlLoader.load();
+			stage.setScene(new Scene(BuchTab));
+			stage.setTitle("Regal anlegen");
+			stage.show();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
     }
 
     @FXML
@@ -75,11 +91,37 @@ public class RegalTabController implements Initializable {
     @FXML
     void menuBearbeiten(ActionEvent event) {
 
+    	try {
+			Stage stage = new Stage();
+			Parent BuchTab;
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/REGAL_Bearbeiten.fxml"));
+			BuchTab = (Parent) fxmlLoader.load();
+			RegalBearbeitenController rbc = fxmlLoader.getController();
+			rbc.setRegal(tblRegal.getSelectionModel().getSelectedItem().getRegalID());
+			stage.setScene(new Scene(BuchTab));
+			stage.setTitle("Regal Bearbeiten");
+			stage.show();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
     }
 
     @FXML
     void menuInformationen(ActionEvent event) {
 
+    	try {
+			Stage stage = new Stage();
+			Parent BuchTab;
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/REGAL_Informationen.fxml"));
+			BuchTab = (Parent) fxmlLoader.load();
+			RegalInformationenController ric = fxmlLoader.getController();
+			ric.setRegal(tblRegal.getSelectionModel().getSelectedItem().getRegalID());
+			stage.setScene(new Scene(BuchTab));
+			stage.setTitle("Regalinformationen");
+			stage.show();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
     }
 
     @FXML
@@ -116,6 +158,7 @@ public class RegalTabController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		cbbFilter.setItems(FXCollections.observableArrayList(FILTER_Regal.values()));
+		loadTableView();
 	}
 
 }
