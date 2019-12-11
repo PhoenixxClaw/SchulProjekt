@@ -81,4 +81,20 @@ public class Alerts {
 				return false;
 		}
 	}
+	
+	/*
+	 * 
+	 * 
+	 *  ERRORS
+	 * 
+	 * 
+	 */
+	
+	public void buchVerleihenKeineCBBAusgewaehlt () {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Error");
+		alert.setHeaderText(null);
+		alert.setContentText("Keine Ausleihdauer ausgewählt.\nBitte wählen sie eine Ausleihdauer aus.");
+		alert.showAndWait();
+	}
 }

@@ -21,7 +21,7 @@ public class Regal implements Serializable {
 	private int RegalID;
 	@Column(nullable = false, length = 60)
 	private String RegalName;
-	@Column(nullable = false, length = 2)
+	@Column(nullable = false, length = 5)
 	private String Reihe;
 	@Column(nullable = false)
 	private int Fachanzahl;

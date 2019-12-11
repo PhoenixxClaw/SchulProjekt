@@ -56,7 +56,7 @@ public class BenutzerInformationenController {
     	txtGeburtstag.setText(benutzer.getGeburtsdatum());
     	txtNachname.setText(benutzer.getNachname());
     	txtOrt.setText(benutzer.getORT());
-    	txtPLZ.setText(Integer.toString(benutzer.getPLZ()));
+    	txtPLZ.setText(benutzer.getPLZ());
     	txtVorname.setText(benutzer.getVorname());
     	chkAdmin.setSelected(benutzer.getIsAdmin());
     	

@@ -23,6 +23,10 @@ public class Buch implements Serializable {
 	private String Author;
 	@Column(nullable = false, length = 60)
 	private String ISDN;
+	@Column(nullable = true, length = 60)
+	private String VerleihDatum;
+	@Column(nullable = true, length = 60)
+	private String RueckgabeDatum;
 	
 	@ManyToOne
 	private Ausweis ausweis;
@@ -76,6 +80,18 @@ public class Buch implements Serializable {
 		this.regal = regal;
 	}
 	
+	public String getVerleihDatum() {
+		return VerleihDatum;
+	}
+	public void setVerleihDatum(String verleihDatum) {
+		VerleihDatum = verleihDatum;
+	}
+	public String getRueckgabeDatum() {
+		return RueckgabeDatum;
+	}
+	public void setRueckgabeDatum(String rueckgabeDatum) {
+		RueckgabeDatum = rueckgabeDatum;
+	}
 	@Override
 		public String toString() {
 			// TODO Auto-generated method stub

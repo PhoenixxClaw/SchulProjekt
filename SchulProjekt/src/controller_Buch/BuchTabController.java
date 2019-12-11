@@ -138,6 +138,19 @@ public class BuchTabController implements Initializable {
     @FXML
     void menuVerleihen(ActionEvent event) {
 
+    	try {
+			Stage stage = new Stage();
+			Parent BuchTab;
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/BUCH_Verleihen.fxml"));
+			BuchTab = (Parent) fxmlLoader.load();
+			BuchVerleihenController bvc = fxmlLoader.getController();
+			bvc.setBuch(tblBuecher.getSelectionModel().getSelectedItem().getBuchID());
+			stage.setScene(new Scene(BuchTab));
+			stage.setTitle("Buch Verleihen");
+			stage.show();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
     }
     
     public void loadTableView() {

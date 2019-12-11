@@ -145,7 +145,7 @@ public class BenutzerTabController implements Initializable {
 		List<TableViewBenutzer> tableViewBenutzerList = new ArrayList<TableViewBenutzer>();
 		List<Benutzer> benutzerList = benutzerDAO.findAllBenutzer();
 		for (int i = 0; i < benutzerList.size(); i++) {
-			
+			int buecherZahl = 0;
 			TableViewBenutzer tempTBLBenutzer = new TableViewBenutzer();
 			tempTBLBenutzer.setBenutzerNummer(benutzerList.get(i).getBenutzerNummer());
 			tempTBLBenutzer.setNachname(benutzerList.get(i).getNachname());
@@ -153,15 +153,18 @@ public class BenutzerTabController implements Initializable {
 			tempTBLBenutzer.setStatus(benutzerList.get(i).getStatus());
 			
 			for (int j = 0; j < benutzerList.get(i).getAusweis().size(); j++) {
-				if (benutzerList.get(i).getAusweis().get(j).getStatus().equals("Gültig")) {
-					Ausweis ausweis = benutzerList.get(i).getAusweis().get(j);
-					if (ausweis.getBuecher().size()==0 || ausweis.getBuecher() == null) {
-						
-						tempTBLBenutzer.setAusleihstatus("Keine Bücher ausgeliehen");
-					} else {
-						tempTBLBenutzer.setAusleihstatus(ausweis.getBuecher().size()+" Bücher ausgeliehen");
-					}
+				
+				Ausweis ausweis = benutzerList.get(i).getAusweis().get(j);
+				
+				if (ausweis.getBuecher().size()==0 || ausweis.getBuecher() == null && buecherZahl == 0) {
+					
+					tempTBLBenutzer.setAusleihstatus("Keine Bücher ausgeliehen");
+				} else {
+					buecherZahl = buecherZahl + ausweis.getBuecher().size();
+					tempTBLBenutzer.setAusleihstatus(buecherZahl+" Bücher ausgeliehen");
 				}
+				
+				
 			}
 			
 			tableViewBenutzerList.add(tempTBLBenutzer);

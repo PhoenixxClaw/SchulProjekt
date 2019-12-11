@@ -78,6 +78,7 @@ public class BenutzerAnlegenController {
     	benutzer.setORT(txtOrt.getText());
     	benutzer.setPasswort(txtPasswort.getText());
     	benutzer.setVorname(txtVorname.getText());
+    	benutzer.setPLZ(txtPLZ.getText());
     	benutzer.setStatus("Aktiv");
     	String benutzerNummer = "2";
     	int daoSize = benutzerDAO.findAllBenutzer().size();

@@ -64,7 +64,7 @@ public class BenutzerBearbeitenController {
     	benutzer.setNachname(txtNachname.getText());
     	benutzer.setORT(txtOrt.getText());
     	benutzer.setPasswort(txtPasswort.getText());
-    	benutzer.setPLZ(Integer.valueOf(txtPLZ.getText()));
+    	benutzer.setPLZ(txtPLZ.getText());
     	benutzer.setVorname(txtVorname.getText());
     	benutzerDAO.update(benutzer);
     	benutzerDAO.shutdown();
@@ -81,7 +81,7 @@ public class BenutzerBearbeitenController {
     	txtGeburtstag.setText(benutzer.getGeburtsdatum());
     	txtNachname.setText(benutzer.getNachname());
     	txtOrt.setText(benutzer.getORT());
-    	txtPLZ.setText(Integer.toString(benutzer.getPLZ()));
+    	txtPLZ.setText(benutzer.getPLZ());
     	txtVorname.setText(benutzer.getVorname());
     	txtPasswort.setText(benutzer.getPasswort());
     	chkAdmin.setSelected(benutzer.getIsAdmin());

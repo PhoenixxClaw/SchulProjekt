@@ -31,7 +31,7 @@ public class Benutzer implements Serializable {
 	private String adresse;
 	
 	@Column(nullable = false)
-	private int PLZ;
+	private String PLZ;
 	
 	@Column(nullable = false, length = 60)
 	private String ORT;
@@ -134,11 +134,11 @@ public class Benutzer implements Serializable {
 	public void setBenutzerNummer(String benutzerNummer) {
 		this.benutzerNummer = benutzerNummer;
 	}
-	public int getPLZ() {
+	public String getPLZ() {
 		return PLZ;
 	}
-	public void setPLZ(int pLZ) {
-		PLZ = pLZ;
+	public void setPLZ(String PLZ) {
+		this.PLZ = PLZ;
 	}
 	public String getORT() {
 		return ORT;
