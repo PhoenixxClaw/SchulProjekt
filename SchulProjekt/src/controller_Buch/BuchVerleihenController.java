@@ -17,6 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import methods.DateConverter;
 
 public class BuchVerleihenController {
 
@@ -51,23 +52,14 @@ public class BuchVerleihenController {
 	@FXML
 	void btnSpeichern(MouseEvent event) {
 
-		int ablaufTagInt = 0, ablaufMonatInt = 0, ablaufJahrInt = 0;
-		String ablaufTag, ablaufMonat, ablaufJahr, ablaufDatum;
+		int ausleihTagZahl = 0;
+		String endDatum;
 		AusweisDAO ausweisDAO = new AusweisDAO();
 		BuchDAO buchDAO = new BuchDAO();
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		Date date = new Date();
 		String datum = dateFormat.format(date);
 		buch.setVerleihDatum(datum);
-		String erstellDatum = datum;
-		String[] split = erstellDatum.split("-");
-		String erstellTag = split[0];
-		String erstellMonat = split[1];
-		String erstellJahr = split[2];
-		int erstellJahrInt = Integer.valueOf(erstellJahr);
-		int erstellTagInt = Integer.valueOf(erstellTag);
-		int erstellMonatInt = Integer.valueOf(erstellMonat);
-		int ausleihTagZahl = 0;
 		switch (cbbAusleihDauer.getSelectionModel().getSelectedItem()) {
 		case ONE:
 			ausleihTagZahl = 1;
@@ -86,60 +78,9 @@ public class BuchVerleihenController {
 			alert.buchVerleihenKeineCBBAusgewaehlt();
 			break;
 		}
-		int numDays = 0;
-		switch (erstellMonatInt) {
-		case 1:
-		case 3:
-		case 5:
-		case 7:
-		case 8:
-		case 10:
-		case 12:
-			numDays = 31;
-			break;
-		case 4:
-		case 6:
-		case 9:
-		case 11:
-			numDays = 30;
-			break;
-		case 2:
-			if (((erstellJahrInt % 4 == 0) && !(erstellJahrInt % 100 == 0)) || (erstellJahrInt % 400 == 0))
-				numDays = 29;
-			else
-				numDays = 28;
-			break;
-
-		default:
-			break;
-		}
-
-		if (erstellTagInt + ausleihTagZahl > numDays) {
-			ablaufTagInt = (erstellTagInt + ausleihTagZahl) - numDays;
-			ablaufMonatInt = erstellMonatInt + 1;
-			if (ablaufMonatInt > 12) {
-				ablaufMonatInt = 1;
-				ablaufJahrInt = erstellJahrInt + 1;
-			} else {
-				ablaufMonatInt = erstellMonatInt;
-			}
-		} else {
-			ablaufTagInt = erstellTagInt + ausleihTagZahl;
-			ablaufMonatInt = erstellMonatInt;
-			ablaufJahrInt = erstellJahrInt;
-		}
-		ablaufTag = Integer.toString(ablaufTagInt);
-		ablaufMonat = Integer.toString(ablaufMonatInt);
-		ablaufJahr = Integer.toString(ablaufJahrInt);
-
-		if (ablaufTag.length() < 2) {
-			ablaufTag = "0" + ablaufTag;
-		}
-		if (ablaufMonat.length() < 2) {
-			ablaufMonat = "0" + ablaufMonat;
-		}
-		ablaufDatum = ablaufTag + "-" + ablaufMonat + "-" + ablaufJahr;
-		buch.setRueckgabeDatum(ablaufDatum);
+		DateConverter dateConverter = new DateConverter();
+		endDatum = dateConverter.convertDay(datum, ausleihTagZahl);
+		buch.setRueckgabeDatum(endDatum);
 		buch.setAusweis(ausweisDAO.findByAusweisNummer(txtAusweisNummer.getText()));
 		buchDAO.update(buch);
 		buchDAO.shutdown();

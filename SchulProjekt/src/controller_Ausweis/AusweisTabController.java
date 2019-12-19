@@ -25,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import methods.DateConverter;
 import tableViewObjects.TableViewAusweis;
 
 public class AusweisTabController implements Initializable {
@@ -151,26 +152,12 @@ public class AusweisTabController implements Initializable {
 
 	@FXML
 	void menuVerlaengern1Monat(ActionEvent event) {
+		
+		DateConverter dateConverter = new DateConverter();
 		AusweisDAO ausweisDAO = new AusweisDAO();
 		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		String ablaufDatum = ausweis.getAblaufDatum();
-		String[] split = ablaufDatum.split("-");
-		String ablaufMonat = split[1];
-		String ablaufJahr = split[2];
-		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat) + 1);
-		if (Integer.valueOf(ablaufMonat) > 12) {
-			int Monat = Integer.valueOf(ablaufMonat);
-			int rest = Monat - 12;
-			ablaufMonat = "0" + rest;
-			ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr) + 1);
-		}
-
-		if (ablaufMonat.length() == 1) {
-			ablaufMonat = "0" + ablaufMonat;
-		}
-		ablaufDatum = split[0] + "-" + ablaufMonat + "-" + ablaufJahr;
-		ausweis.setAblaufDatum(ablaufDatum);
+		ausweis.setAblaufDatum(dateConverter.convertMonth(ausweis.getAblaufDatum(), 1));
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
 		loadTableview();
@@ -178,26 +165,11 @@ public class AusweisTabController implements Initializable {
 
 	@FXML
 	void menuVerlaengern3Monate(ActionEvent event) {
+		DateConverter dateConverter = new DateConverter();
 		AusweisDAO ausweisDAO = new AusweisDAO();
 		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		String ablaufDatum = ausweis.getAblaufDatum();
-		String[] split = ablaufDatum.split("-");
-		String ablaufMonat = split[1];
-		String ablaufJahr = split[2];
-		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat) + 3);
-		if (Integer.valueOf(ablaufMonat) > 12) {
-			int Monat = Integer.valueOf(ablaufMonat);
-			int rest = Monat - 12;
-			ablaufMonat = "0" + rest;
-			ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr) + 1);
-		}
-
-		if (ablaufMonat.length() == 1) {
-			ablaufMonat = "0" + ablaufMonat;
-		}
-		ablaufDatum = split[0] + "-" + ablaufMonat + "-" + ablaufJahr;
-		ausweis.setAblaufDatum(ablaufDatum);
+		ausweis.setAblaufDatum(dateConverter.convertMonth(ausweis.getAblaufDatum(), 3));
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
 		loadTableview();
@@ -205,26 +177,11 @@ public class AusweisTabController implements Initializable {
 
 	@FXML
 	void menuVerlaengern6Monate(ActionEvent event) {
+		DateConverter dateConverter = new DateConverter();
 		AusweisDAO ausweisDAO = new AusweisDAO();
 		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		String ablaufDatum = ausweis.getAblaufDatum();
-		String[] split = ablaufDatum.split("-");
-		String ablaufMonat = split[1];
-		String ablaufJahr = split[2];
-		ablaufMonat = Integer.toString(Integer.valueOf(ablaufMonat) + 6);
-		if (Integer.valueOf(ablaufMonat) > 12) {
-			int Monat = Integer.valueOf(ablaufMonat);
-			int rest = Monat - 12;
-			ablaufMonat = "0" + rest;
-			ablaufJahr = Integer.toString(Integer.valueOf(ablaufJahr) + 1);
-		}
-
-		if (ablaufMonat.length() == 1) {
-			ablaufMonat = "0" + ablaufMonat;
-		}
-		ablaufDatum = split[0] + "-" + ablaufMonat + "-" + ablaufJahr;
-		ausweis.setAblaufDatum(ablaufDatum);
+		ausweis.setAblaufDatum(dateConverter.convertMonth(ausweis.getAblaufDatum(), 6));
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
 		loadTableview();
@@ -232,12 +189,15 @@ public class AusweisTabController implements Initializable {
 	
 	@FXML
     void menuLoeschen(ActionEvent event) {
+		/*
 		AusweisDAO ausweisDAO = new AusweisDAO();
+		 
 		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweisDAO.delete(ausweis.getAusweisID());
 		ausweisDAO.shutdown();
 		loadTableview();
+		*/
     }
 
 	@FXML
