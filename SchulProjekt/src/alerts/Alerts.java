@@ -38,6 +38,28 @@ public class Alerts {
 		}
 	}
 	
+	public boolean ausweisVerlorenNeuenAnlegen() {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Ausweis Verloren");
+		alert.setHeaderText("Ausweis Verloren");
+		alert.setContentText("Soll ein neuer Ausweis für den Benutzer angelegt werden?");
+
+		ButtonType buttonTypeJa = new ButtonType("Ja");
+		ButtonType buttonTypeNein = new ButtonType("Nein");
+
+		alert.getButtonTypes().setAll(buttonTypeJa, buttonTypeNein);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == buttonTypeJa) {
+			return true;
+		} else {
+			if (result.get() == buttonTypeNein) {
+				return false;
+			} else
+				return false;
+		}
+	}
+	
 	public boolean regalWeiteresRegalAnlegen() {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Weiteres Regal anlegen");

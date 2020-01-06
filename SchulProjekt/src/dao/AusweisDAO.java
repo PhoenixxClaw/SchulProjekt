@@ -42,6 +42,13 @@ public class AusweisDAO {
 		return p;
 	}
 	
+	public Ausweis findLastAusweis() {
+		TypedQuery<Ausweis> query = em.createQuery("Select r from Ausweis r ORDER BY r.AusweisID DESC", Ausweis.class);
+		query.setMaxResults(1);
+		Ausweis ausweis = query.getSingleResult();
+		return ausweis;
+	}
+	
 	public void persist(Ausweis ausweis) {
 		em.getTransaction().begin();
 		em.persist(ausweis);

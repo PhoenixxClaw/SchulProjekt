@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import alerts.Alerts;
 import dao.AusweisDAO;
 import entities.Ausweis;
 import filter_ENums.FILTER_Ausweis;
@@ -25,6 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import methods.AusweisFunktionen;
 import methods.DateConverter;
 import tableViewObjects.TableViewAusweis;
 
@@ -126,11 +128,17 @@ public class AusweisTabController implements Initializable {
 	@FXML
 	void menuStatusVerloren(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
+		Alerts alert = new Alerts();
 		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
 				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweis.setStatus("Verloren");
 		ausweisDAO.update(ausweis);
 		ausweisDAO.shutdown();
+		boolean check = alert.ausweisVerlorenNeuenAnlegen();
+		if (check) {
+			AusweisFunktionen ausweisFunktionen = new AusweisFunktionen();
+			ausweisFunktionen.ausweisAnlegenMitBenutzerNummer(tblAusweis.getSelectionModel().getSelectedItem().getBenutzerNummer());
+		}
 		loadTableview();
 	}
 
