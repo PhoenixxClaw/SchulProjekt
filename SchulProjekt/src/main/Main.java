@@ -21,7 +21,7 @@ public class Main extends Application {
 		while (!check) {
 
 			System.out.println(
-					"Wollen Sie die GUI-Anwendung oder oder Konsolen-Anwendung nutzen?\n1: GUI-Anwendung\n2: Konsolen-Anwendung\n0: Programm beende.\n\nEingabe: ");
+					"Wollen Sie die GUI-Anwendung oder oder Konsolen-Anwendung nutzen?\n1: GUI-Anwendung\n2: Konsolen-Anwendung\n0: Programm beenden\n\nEingabe: ");
 			String input = sc.next();
 			switch (input) {
 			case "1":
