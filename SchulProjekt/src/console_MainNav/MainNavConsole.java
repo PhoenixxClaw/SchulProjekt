@@ -2,6 +2,8 @@ package console_MainNav;
 
 import java.util.Scanner;
 
+import console_Benutzer.MainBenutzerConsole;
+
 public class MainNavConsole {
 
 	public void start() {
@@ -13,7 +15,8 @@ public class MainNavConsole {
 			switch (input) {
 			case "1":
 				System.out.println("Benutzermenu wird geladen..");
-				//INPUT USERMENUCALL
+				MainBenutzerConsole mbc = new MainBenutzerConsole();
+				mbc.start();
 				break;
 			case "2":
 				System.out.println("Ausweismenu wird geladen..");

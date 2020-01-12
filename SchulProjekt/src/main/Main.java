@@ -4,6 +4,7 @@ import java.io.Console;
 import java.util.Scanner;
 import java.util.logging.ConsoleHandler;
 
+import console_MainNav.MainNavConsole;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,7 +32,8 @@ public class Main extends Application {
 				break;
 
 			case "2":
-
+				MainNavConsole mainNavConsole = new MainNavConsole();
+				mainNavConsole.start();
 				check = true;
 				sc.close();
 				break;

@@ -10,7 +10,7 @@
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://91.121.165.179:3306/AS-db"/>
 			<property name="javax.persistence.jdbc.user" value="dbUser"/>
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
-			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.show_sql" value="false"/>
 			<property name="javax.persistence.jdbc.password" value="dbUserPassword"/>
 			
 		</properties>
