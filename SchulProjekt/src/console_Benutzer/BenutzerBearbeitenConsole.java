@@ -50,7 +50,12 @@ public class BenutzerBearbeitenConsole {
 			case 6:
 				System.out.println("Bitte geben Sie den neuen Ort an.\nEingabe: ");
 				input2 = sc.nextLine();
-				benutzer.setORT(input2);
+				if (input2.toLowerCase().equals("bielefeld")) {
+					System.out.println("Error: Bielefeld nicht gefunden.");
+				} else {
+					benutzer.setORT(input2);
+				}
+
 				break;
 			case 7:
 				System.out.println("Bitte geben Sie den neuen Benutzernamen an.\nEingabe: ");

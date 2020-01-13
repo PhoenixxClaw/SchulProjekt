@@ -31,7 +31,7 @@ public class MainNavConsole {
 				//INPUT BUCHMENUCALL
 				break;
 			case "x":
-				System.out.println("Programm wird beendet..");
+				System.out.println("Programm wird beendet..\nProgramm beendet.");
 				System.exit(0);
 			default:
 				System.out.println("Fehlerhafte Eingabe.. Bitte Eingabe wiederholen");
