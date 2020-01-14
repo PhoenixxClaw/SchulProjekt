@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 //import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import entities.Ausweis;
 import entities.Benutzer;
 
 public class BenutzerDAO {
@@ -42,6 +43,13 @@ public class BenutzerDAO {
 				.setParameter("vn", BenutzerName)
 				.getSingleResult();
 		return p;
+	}
+	
+	public Benutzer findLastBenutzer() {
+		TypedQuery<Benutzer> query = em.createQuery("Select r from Benutzer r ORDER BY r.benutzerID DESC", Benutzer.class);
+		query.setMaxResults(1);
+		Benutzer benutzer = query.getSingleResult();
+		return benutzer;
 	}
 	
 	public Benutzer findByBenutzerNummer(String BenutzerNummer) {

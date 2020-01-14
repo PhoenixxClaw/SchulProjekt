@@ -80,8 +80,7 @@ public class BenutzerAnlegenController {
 		benutzer.setPLZ(txtPLZ.getText());
 		benutzer.setStatus("Aktiv");
 		String benutzerNummer = "2";
-		int daoSize = benutzerDAO.findAllBenutzer().size();
-		int neededSize = daoSize + 1;
+		int neededSize = (Integer.valueOf(benutzerDAO.findLastBenutzer().getBenutzerNummer()) - 2000000000) + 1;
 		int stringSize = Integer.toString(neededSize).length();
 
 		for (int i = 0; i < (9 - stringSize); i++) {
@@ -94,12 +93,12 @@ public class BenutzerAnlegenController {
 		 * AUSWEIS ANLEGEN
 		 */
 
+		benutzerDAO.persist(benutzer);
 		
 		AusweisFunktionen ausweisFunktionen = new AusweisFunktionen();
 		ausweisFunktionen.ausweisAnlegenMitBenutzer(benutzer);
+
 		
-		
-		benutzerDAO.persist(benutzer);
 
 		benutzerDAO.shutdown();
 

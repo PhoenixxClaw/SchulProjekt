@@ -15,19 +15,23 @@ public class MainBenutzerConsole {
 		boolean check = true;
 		while (check) {
 			System.out.println(
-					"Wählen Sie eine Option aus. \n1. Benutzer Informationen\n2. Benutzer Bearbeiten\n3. Zum vorherigen Menu zurückkehren\nEingabe: ");
+					"Wählen Sie eine Option aus. \n1: Benutzer anlegen\n2: Benutzer Informationen\n3: Benutzer Bearbeiten\n4: Zum vorherigen Menu zurückkehren\nEingabe: ");
 			Scanner sc = new Scanner(System.in);
 			int input = sc.nextInt();
 			int input2;
 			switch (input) {
 			case 1:
+				BenutzerAnlegenConsole bac = new BenutzerAnlegenConsole();
+				bac.start();
+				break;
+			case 2:
 				// Input InformationenCall
 				System.out.println("Geben sie die Nummer des Benutzers an.\nEingabe: ");
 				input2 = sc.nextInt();
 				BenutzerInformationenConsole bic = new BenutzerInformationenConsole();
 				bic.start(benutzerDAO.find(input2));
 				break;
-			case 2:
+			case 3:
 				// Input BearbeitenCall
 				System.out.println("Geben sie die Nummer des Benutzers an.\nEingabe: ");
 				input2 = sc.nextInt();
@@ -35,7 +39,7 @@ public class MainBenutzerConsole {
 				bbc.start(benutzerDAO.find(input2));
 				break;
 
-			case 3:
+			case 4:
 				check = false;
 				benutzerDAO.shutdown();
 				break;
