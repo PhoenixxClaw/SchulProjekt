@@ -94,11 +94,9 @@ public class BenutzerAnlegenController {
 		 */
 
 		benutzerDAO.persist(benutzer);
-		
+
 		AusweisFunktionen ausweisFunktionen = new AusweisFunktionen();
 		ausweisFunktionen.ausweisAnlegenMitBenutzer(benutzer);
-
-		
 
 		benutzerDAO.shutdown();
 

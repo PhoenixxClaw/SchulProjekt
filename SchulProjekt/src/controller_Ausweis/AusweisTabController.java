@@ -82,7 +82,7 @@ public class AusweisTabController implements Initializable {
 
 	@FXML
 	private MenuItem menuVerlaengern1Jahr;
-	
+
 	@FXML
 	private MenuItem menuLoeschen;
 
@@ -105,48 +105,30 @@ public class AusweisTabController implements Initializable {
 
 	@FXML
 	void menuStatusAbgelaufen(ActionEvent event) {
-		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
-				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		ausweis.setStatus("Abgelaufen");
-		ausweisDAO.update(ausweis);
-		ausweisDAO.shutdown();
+		AusweisFunktionen ausweisFunktion = new AusweisFunktionen();
+		ausweisFunktion.statusAnpassen(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer(), 1, false);
 		loadTableview();
 	}
 
 	@FXML
 	void menuStatusGueltig(ActionEvent event) {
-		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
-				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		ausweis.setStatus("Gültig");
-		ausweisDAO.update(ausweis);
-		ausweisDAO.shutdown();
+		AusweisFunktionen ausweisFunktion = new AusweisFunktionen();
+		ausweisFunktion.statusAnpassen(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer(), 2, false);
 		loadTableview();
 	}
 
 	@FXML
 	void menuStatusVerloren(ActionEvent event) {
-		AusweisDAO ausweisDAO = new AusweisDAO();
-		Alerts alert = new Alerts();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
-				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		ausweis.setStatus("Verloren");
-		ausweisDAO.update(ausweis);
-		ausweisDAO.shutdown();
-		boolean check = alert.ausweisVerlorenNeuenAnlegen();
-		if (check) {
-			AusweisFunktionen ausweisFunktionen = new AusweisFunktionen();
-			ausweisFunktionen.ausweisAnlegenMitBenutzerNummer(tblAusweis.getSelectionModel().getSelectedItem().getBenutzerNummer());
-		}
+		AusweisFunktionen ausweisFunktion = new AusweisFunktionen();
+		ausweisFunktion.statusAnpassen(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer(), 3, false);
 		loadTableview();
 	}
 
 	@FXML
 	void menuVerlaengern1Jahr(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
-				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
+		Ausweis ausweis = ausweisDAO
+				.findByAusweisNummer(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		String ablaufDatum = ausweis.getAblaufDatum();
 		String[] split = ablaufDatum.split("-");
 		String ablaufJahr = split[2];
@@ -160,53 +142,34 @@ public class AusweisTabController implements Initializable {
 
 	@FXML
 	void menuVerlaengern1Monat(ActionEvent event) {
-		
-		DateConverter dateConverter = new DateConverter();
-		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
-				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		ausweis.setAblaufDatum(dateConverter.convertMonth(ausweis.getAblaufDatum(), 1));
-		ausweisDAO.update(ausweis);
-		ausweisDAO.shutdown();
+		AusweisFunktionen ausweisFunktion = new AusweisFunktionen();
+		ausweisFunktion.ausweisVerlaengern(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer(), 1);
 		loadTableview();
 	}
 
 	@FXML
 	void menuVerlaengern3Monate(ActionEvent event) {
-		DateConverter dateConverter = new DateConverter();
-		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
-				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		ausweis.setAblaufDatum(dateConverter.convertMonth(ausweis.getAblaufDatum(), 3));
-		ausweisDAO.update(ausweis);
-		ausweisDAO.shutdown();
+		AusweisFunktionen ausweisFunktion = new AusweisFunktionen();
+		ausweisFunktion.ausweisVerlaengern(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer(), 3);
 		loadTableview();
 	}
 
 	@FXML
 	void menuVerlaengern6Monate(ActionEvent event) {
-		DateConverter dateConverter = new DateConverter();
-		AusweisDAO ausweisDAO = new AusweisDAO();
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
-				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
-		ausweis.setAblaufDatum(dateConverter.convertMonth(ausweis.getAblaufDatum(), 6));
-		ausweisDAO.update(ausweis);
-		ausweisDAO.shutdown();
+		AusweisFunktionen ausweisFunktion = new AusweisFunktionen();
+		ausweisFunktion.ausweisVerlaengern(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer(), 6);
 		loadTableview();
 	}
-	
+
 	@FXML
-    void menuLoeschen(ActionEvent event) {
-		/*
+	void menuLoeschen(ActionEvent event) {
 		AusweisDAO ausweisDAO = new AusweisDAO();
-		 
-		Ausweis ausweis = ausweisDAO.findByAusweisNummer(
-				tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
+		Ausweis ausweis = ausweisDAO
+				.findByAusweisNummer(tblAusweis.getSelectionModel().getSelectedItem().getAusweisNummer());
 		ausweisDAO.delete(ausweis.getAusweisID());
 		ausweisDAO.shutdown();
 		loadTableview();
-		*/
-    }
+	}
 
 	@FXML
 	void btnSuchen(MouseEvent event) {

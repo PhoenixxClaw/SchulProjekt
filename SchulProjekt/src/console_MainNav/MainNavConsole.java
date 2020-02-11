@@ -2,7 +2,9 @@ package console_MainNav;
 
 import java.util.Scanner;
 
+import console_Ausweis.MainAusweisConsole;
 import console_Benutzer.MainBenutzerConsole;
+import console_buecher.MainBuecherConsole;
 
 public class MainNavConsole {
 
@@ -10,7 +12,7 @@ public class MainNavConsole {
 		boolean schleifenCheck = true;
 		while (schleifenCheck) {
 			Scanner sc = new Scanner(System.in);
-			System.out.println("Zu welchem menu wollen Sie wechseln?\n1: Benutzer\n2: Ausweis\n3: Regal\n4: Buch\nX: Programm beenden\nEingabe: ");
+			System.out.println("Zu welchem menu wollen Sie wechseln?\n1: Benutzer\n2: Ausweis\n3: Buch\n4: Regal\nX: Programm beenden\nEingabe: ");
 			String input = sc.next();
 			switch (input) {
 			case "1":
@@ -20,14 +22,16 @@ public class MainNavConsole {
 				break;
 			case "2":
 				System.out.println("Ausweismenu wird geladen..");
-				//INPUT AUSWEISMENUCALL
+				MainAusweisConsole mac = new MainAusweisConsole();
+				mac.start();
 				break;
 			case "3":
-				System.out.println("Regalmenu wird geladen..");
-				//INPUT REGALMENUCALL
+				System.out.println("Buchmenu wird geladen..");
+				MainBuecherConsole mbuc = new MainBuecherConsole();
+				mbuc.start();
 				break;
 			case "4":
-				System.out.println("Buchmenu wird geladen..");
+				System.out.println("Regalmenu wird geladen..");
 				//INPUT BUCHMENUCALL
 				break;
 			case "x":
